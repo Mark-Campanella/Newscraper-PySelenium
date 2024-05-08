@@ -166,8 +166,3 @@ def go_into_website(url: str):
         except:
             driver.quit()
             return "Data was not cleaned!"
-
-
-            
-
-
