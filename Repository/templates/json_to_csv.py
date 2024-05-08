@@ -1,21 +1,35 @@
-import pandas as pd
 import json
+import csv
+import os
 
 def json_to_csv():
-    # Carregar o arquivo JSON
-    with open('Repository/file_cleaned.json', 'r', encoding='utf-8') as file:
+    """
+    Convert JSON data to CSV format with a specific separator.
+    """
+    json_file = 'Repository/file_cleaned.json'
+    csv_file = 'Repository/CSV/data.csv'
+
+    # Check if the JSON file exists
+    if not os.path.exists(json_file):
+        print("JSON file does not exist.")
+        return
+
+    # Load JSON data
+    with open(json_file, 'r', encoding='utf-8') as file:
         json_data = json.load(file)
 
-    # Criar um DataFrame vazio
-    df = pd.DataFrame()
+    # Write JSON data to CSV file with a specific separator
+    with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-    # Iterar sobre os itens do JSON
-    for item in json_data:
-        # Adicionar cada item ao DataFrame
-        df = df._append(item, ignore_index=True)
+        # Write header
+        writer.writerow(['Titles', 'Text', 'Scoop'])
 
-    # Salvar o DataFrame como CSV
-    #TODO sep='' create a sep for csv and add it in the end of each part (text, title, summary, etc.)
-    df.to_csv('Repository/CSV/file_cleaned.csv', index=False, )
+        # Write rows
+        for row in json_data:
+            writer.writerow([row.get('Titles', '').replace(';', ','), row.get('Text', '').replace(';', ','), row.get('Scoop', '').replace(';', ',')])
 
-    print("Arquivo CSV criado com sucesso!")
+    print(f"CSV file '{csv_file}' has been created.")
+
+if __name__ == '__main__':
+    json_to_csv()
