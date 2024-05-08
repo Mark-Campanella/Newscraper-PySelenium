@@ -1,14 +1,12 @@
+import json
+import re
+import os
 from selenium import webdriver
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import pandas as pd
 import time
 from flask import Flask, render_template, request
-import json
-import re
-import os
-from textblob import TextBlob
+from textsum.summarize import Summarizer
 
 
 def save(item_name, items):
@@ -42,7 +40,7 @@ def rework_json_file():
     print("Resultado salvo em:", output_file_path)
 
     
-        # Função para limpar caracteres especiais
+# Função para limpar caracteres especiais
 def limpar_texto(texto):
     return re.sub(r'[^\x00-\x7F]+', '', texto)
 
@@ -71,17 +69,12 @@ def aglutinar_textos(data):
 
     return aglutinado
             
-
-    # Adicionamos o último título e texto aglutinado à lista
-    if titulo_atual is not None:
-        aglutinado.append({"Titles": titulo_atual, "Text": texto_aglutinado.strip()})
-
-    return aglutinado
     
-# Função para resumir texto usando TextBlob
-def resumir_texto(texto):
-    blob = TextBlob(texto)
-    return str(blob.sentences[:len(texto)])  # Resumo com as duas primeiras frases
+def resumir_texto(text):
+    sum = Summarizer()
+    scoop = sum.summarize_string(text)
+    return scoop
+    
 
 def resumir_textos_e_adicionar_scoop(json_data):
     json_atualizado = []
@@ -131,13 +124,19 @@ def go_into_website(url):
         
         elem = driver.find_elements(By.TAG_NAME, 'p')
         [text.append(every.text) for every in elem]      
+        save("Text", text)
+        
+        rework_json_file()  # Chamando a função rework_json_file() para limpar e salvar o arquivo JSON
+        json_data = json.load(open('Repository/file_cleaned.json', 'r', encoding='utf-8'))  # Carregando o arquivo limpo
+        json_data_with_scoop = resumir_textos_e_adicionar_scoop(json_data)  # Adicionando resumos
+        with open('Repository/file_cleaned.json', 'w', encoding='utf-8') as output_file:
+            json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Salvando o arquivo com os resumos
+
         return "Website info got copied!"
     except Exception as e:
         return f"ERROR!: {e}"
     finally:
         driver.quit()
-        save("Text", text)        
-        rework_json_file()
 
 
 
@@ -155,11 +154,3 @@ def index():
 
 if __name__ == '__main__':
     newscrapper.run(debug=True)
-    
-
-
-
-    
-    
-    
-
