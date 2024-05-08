@@ -124,12 +124,6 @@ def wait_until_page_loads(driver:webdriver, timeout=30):
             break
         time.sleep(1)  # Espera 1 segundo antes de verificar novamente
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import json
-
 def go_into_website(url: str):
     '''
     Uses Selenium to get into the webpage the user typed in the input (url)
