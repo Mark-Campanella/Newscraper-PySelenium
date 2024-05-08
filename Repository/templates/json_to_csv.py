@@ -15,6 +15,7 @@ def json_to_csv():
         df = df._append(item, ignore_index=True)
 
     # Salvar o DataFrame como CSV
-    df.to_csv('Repository/file_cleaned.csv', index=False)
+    #TODO sep='' create a sep for csv and add it in the end of each part (text, title, summary, etc.)
+    df.to_csv('Repository/CSV/file_cleaned.csv', index=False, )
 
     print("Arquivo CSV criado com sucesso!")

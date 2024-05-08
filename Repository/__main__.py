@@ -7,21 +7,27 @@ import pandas as pd
 import time
 from flask import Flask, render_template, request
 from textsum.summarize import Summarizer
+from templates.json_to_csv import json_to_csv
 
-
+#----------------------------------------------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------File Manipulation: json later csv--------------------------------------------#
+#----------------------------------------------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------------------------------------------------#
 def save(item_name, items):
     '''
         Save desired items in a csv to be added in the repository
         
         Parameters:
-            -itens: object to be added
+            -item_name: type of the object added, e.g.: Title, Text, Scoop, etc.
+            -itens: object to be added 'str'
     '''
     df = pd.DataFrame({f'{item_name}': items})
     df.to_json('Repository/pre_file.json', orient='records', lines=True, mode='a', index=False)
     
 def rework_json_file():
     '''
-    Rework the pre_file so it is closer to being correct, saves another file, it does not overwrite
+    Rework the pre_file so it is closer to being correct, saves another file, it does not overwrite pre_file, but overwrite itself!
     '''
     with open('Repository/pre_file.json', 'r', encoding='utf-8') as file:
         # Carregar cada objeto JSON individualmente
@@ -39,13 +45,24 @@ def rework_json_file():
 
     print("Resultado salvo em:", output_file_path)
 
-    
 # Função para limpar caracteres especiais
 def limpar_texto(texto):
+    '''
+    Cleans the text! 
+    
+    Parameters:
+        - str text
+    '''
     return re.sub(r'[^\x00-\x7F]+', '', texto)
 
 # Função para aglutinar textos sob cada título
-def aglutinar_textos(data):
+def aglutinar_textos(data:list):
+    '''
+    Aglutinates a list of texts under theirs respective titles!
+    
+    Parameters:
+        - List data
+    '''
     aglutinado = []
     titulo_atual = None
     texto_aglutinado = ""
@@ -69,26 +86,30 @@ def aglutinar_textos(data):
 
     return aglutinado
             
+def sum_text(text:str):
+    '''
+    This sum up the texts!
     
-def resumir_texto(text):
+    Parameters:
+    
+        - str Text
+    '''
     sum = Summarizer()
     scoop = sum.summarize_string(text)
     return scoop
     
-
-def resumir_textos_e_adicionar_scoop(json_data):
+def add_scoop(json_data):
     json_atualizado = []
     for item in json_data:
         if "Text" in item:
             texto_original = item["Text"]
-            resumo = resumir_texto(texto_original)
+            resumo = sum_text(texto_original)
             # Adicionando o resumo ao item do JSON sob o novo tópico "Scoop"
             item["Scoop"] = resumo
         json_atualizado.append(item)
     return json_atualizado
 
-
-def wait_until_page_loads(driver, timeout=30):
+def wait_until_page_loads(driver:webdriver, timeout=30):
     """
     Awaits page to load dynamically
 
@@ -104,12 +125,14 @@ def wait_until_page_loads(driver, timeout=30):
             break
         time.sleep(1)  # Espera 1 segundo antes de verificar novamente
 
-
-def go_into_website(url):
+def go_into_website(url:str):
     '''
     Uses Selenium to get into the webpage the user typed in the input (url)
     Gather the title (h1) and the texts (p) from the webpage and closes the navigator
     It calls rework_json_file() to clean up the 'pre-file' to the 'file_cleaned'
+    
+    Parameters:
+    str url = text of the link of the news website
     '''
     driver = webdriver.Chrome()
     titles = []
@@ -128,7 +151,7 @@ def go_into_website(url):
         
         rework_json_file()  # Chamando a função rework_json_file() para limpar e salvar o arquivo JSON
         json_data = json.load(open('Repository/file_cleaned.json', 'r', encoding='utf-8'))  # Carregando o arquivo limpo
-        json_data_with_scoop = resumir_textos_e_adicionar_scoop(json_data)  # Adicionando resumos
+        json_data_with_scoop = add_scoop(json_data)  # Adicionando resumos
         with open('Repository/file_cleaned.json', 'w', encoding='utf-8') as output_file:
             json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Salvando o arquivo com os resumos
 
@@ -138,10 +161,12 @@ def go_into_website(url):
     finally:
         driver.quit()
 
+#----------------------------------------------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------------------------------------------------#
+#-------------------------------------------Backend for the user input-------------------------------------------------#
+#----------------------------------------------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------------------------------------------------#
 
-
-
-#Backend for the user input
 newscrapper = Flask(__name__)
 
 @newscrapper.route('/', methods=['GET', 'POST'])
@@ -154,3 +179,4 @@ def index():
 
 if __name__ == '__main__':
     newscrapper.run(debug=True)
+    json_to_csv()
