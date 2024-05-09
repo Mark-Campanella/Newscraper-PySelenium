@@ -20,7 +20,7 @@ def index():
             json_to_csv()  # Convert JSON to CSV
             return send_file('CSV/data.csv', as_attachment=True)
         except:
-            return render_template('index.html', user_input ="Erro em achar o website")
+            return render_template('index.html', user_input ="Website was not found!")
     return render_template('index.html', user_input=None)
     
 

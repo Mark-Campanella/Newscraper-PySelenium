@@ -29,61 +29,59 @@ def rework_json_file():
     Rework the pre_file so it is closer to being correct, saves another file, it does not overwrite pre_file, but overwrite itself!
     '''
     with open('Repository/pre_file.json', 'r', encoding='utf-8') as file:
-        # Carregar cada objeto JSON individualmente
+        # loads each JSON individually
         data = [json.loads(line.strip()) for line in file if line.strip()]
 
-    # Aglutinar os textos sob cada título
-    aglutinado = aglutinar_textos(data)
+    # Aglutinates text under their title
+    algutinated_text = aglutinate_text_to_title(data)
 
-    # Caminho do arquivo de saída
+    # Where I keep the aglutinated text
     output_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'file_cleaned.json')
 
-    # Salvar o resultado no mesmo diretório do arquivo original
+    # Save the result where I want
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
-        json.dump(aglutinado, output_file, ensure_ascii=False, indent=4)
+        json.dump(algutinated_text, output_file, ensure_ascii=False, indent=4)
+    # Not relevant for final user
+    print("Archive saved in:", output_file_path)
 
-    print("Resultado salvo em:", output_file_path)
-
-# Função para limpar caracteres especiais
-def limpar_texto(texto):
+def clean_text(text):
     '''
-    Cleans the text! 
+    Cleans the text (special chars etc.)! 
     
     Parameters:
         - str text
     '''
-    return re.sub(r'[^\x00-\x7F]+', '', texto)
+    return re.sub(r'[^\x00-\x7F]+', '', text)
 
-# Função para aglutinar textos sob cada título
-def aglutinar_textos(data:list):
+def aglutinate_text_to_title(data:list):
     '''
     Aglutinates a list of texts under theirs respective titles!
     
     Parameters:
         - List data
     '''
-    aglutinado = []
-    titulo_atual = None
-    texto_aglutinado = ""
+    algutinated_text = []
+    current_title = None
+    algutinated_text_aux = ""
 
     for item in data:
         if "Titles" in item:
-            # Se encontrarmos um novo título, adicionamos o título anterior e seu texto aglutinado à lista
-            if titulo_atual is not None:
-                aglutinado.append({"Titles": titulo_atual, "Text": texto_aglutinado.strip()})
-                texto_aglutinado = ""
+            # If there is a new title we add the other title to it and add the text aglutinated
+            if current_title is not None:
+                algutinated_text.append({"Titles": current_title, "Text": algutinated_text_aux.strip()})
+                algutinated_text_aux = ""
 
-            # Atualizamos o título atual
-            titulo_atual = limpar_texto(item["Titles"])
+            # Add the other title
+            current_title = clean_text(item["Titles"])
         elif "Text" in item:
-            # Aglutinamos o texto sob o título atual
-            texto_aglutinado += limpar_texto(item["Text"]) + "\n"
+            # Add the text
+            algutinated_text_aux += clean_text(item["Text"]) + "\n"
 
-    # Adicionamos o último título e texto aglutinado à lista
-    if titulo_atual is not None:
-        aglutinado.append({"Titles": titulo_atual, "Text": texto_aglutinado.strip()})
+    # We add the result to a list of aglutinated texts
+    if current_title is not None:
+        algutinated_text.append({"Titles": current_title, "Text": algutinated_text_aux.strip()})
 
-    return aglutinado
+    return algutinated_text
             
 def sum_text(text:str):
     '''
@@ -98,15 +96,15 @@ def sum_text(text:str):
     return scoop
     
 def add_scoop(json_data):
-    json_atualizado = []
+    json_updated = []
     for item in json_data:
         if "Text" in item:
-            texto_original = item["Text"]
-            resumo = sum_text(texto_original)
-            # Adicionando o resumo ao item do JSON sob o novo tópico "Scoop"
-            item["Scoop"] = resumo
-        json_atualizado.append(item)
-    return json_atualizado
+            original_text = item["Text"]
+            summarized_text = sum_text(original_text)
+            # Add the scoop (sum) to the JSON in the new topic "Scoop"
+            item["Scoop"] = summarized_text
+        json_updated.append(item)
+    return json_updated
 
 def wait_until_page_loads(driver:webdriver, timeout=30):
     """
@@ -116,13 +114,13 @@ def wait_until_page_loads(driver:webdriver, timeout=30):
         - driver: Selenium's driver object
         - timeout: in seconds, if none is given =  30
     """
-    start_time = time.time()  # Tempo de início da execução
+    start_time = time.time()  # When it Begins
     while True:
-        end_time = time.time()  # Tempo de fim da execução
-        # Condição para sair do loop: quando o tempo de espera excede o tempo limite ou todos os elementos são carregados
+        end_time = time.time()  # When it ends
+        # If timeout happens or the object html loads, it gets out of the loop
         if (end_time - start_time) > timeout or driver.execute_script("return document.readyState") == "complete":
             break
-        time.sleep(1)  # Espera 1 segundo antes de verificar novamente
+        time.sleep(3)  # Before trying again it waits
 
 def go_into_website(url: str):
     '''
