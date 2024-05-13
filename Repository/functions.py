@@ -1,12 +1,15 @@
-import json
 import csv
-import re
+import json
 import os
+import pandas as pd
+import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import pandas as pd
-import time
 from textsum.summarize import Summarizer
+import time
+
+
+
 
 
 #----------------------------------------------------------------------------------------------------------------------#
