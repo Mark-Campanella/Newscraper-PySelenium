@@ -22,10 +22,10 @@ def flush_data():
     Returns whether the data was flushed or not 
     '''
     try:
-        with open('Repository/file_cleaned.json', 'w', encoding='utf-8') as json_file:
+        with open('Repository/JSON/file_cleaned.json', 'w', encoding='utf-8') as json_file:
             json_file.write('')
             
-        with open('Repository/pre_file.json', 'w', encoding='utf-8') as json_file:
+        with open('Repository/JSON/pre_file.json', 'w', encoding='utf-8') as json_file:
             json_file.write('')
         
         with open('Repository/CSV/data.csv', 'w', encoding='utf-8') as csv_file:
@@ -43,13 +43,13 @@ def save(item_name, items):
             -itens: object to be added 'str'
     '''
     df = pd.DataFrame({f'{item_name}': items})
-    df.to_json('Repository/pre_file.json', orient='records', lines=True, mode='a', index=False)
+    df.to_json('Repository/JSON/pre_file.json', orient='records', lines=True, mode='a', index=False)
 #Takes the raw pre-file and transforms it in a useful and organized file    
 def rework_json_file():
     '''
     Rework the pre_file so it is closer to being correct, saves another file, it does not overwrite pre_file, but overwrite itself!
     '''
-    with open('Repository/pre_file.json', 'r', encoding='utf-8') as file:
+    with open('Repository/JSON/pre_file.json', 'r', encoding='utf-8') as file:
         # loads each JSON individually
         data = [json.loads(line.strip()) for line in file if line.strip()]
 
@@ -57,7 +57,7 @@ def rework_json_file():
     aglutinated_text = aglutinate_text_to_title(data)
             
     # Where I keep the aglutinated text
-    output_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'file_cleaned.json')
+    output_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'JSON/file_cleaned.json')
 
     # Save the result where I want
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
@@ -131,19 +131,19 @@ def add_urls(urls:list):
     Parameters:
         -list urls
     '''
-    with open('Repository/file_cleaned.json', 'r') as arquivo:
+    with open('Repository/JSON/file_cleaned.json', 'r') as arquivo:
         dados_json = json.load(arquivo)
     
-    # Verifica se o comprimento da lista é menor ou igual ao número de objetos no arquivo JSON
+    # If there is the same amout of itens and urls
     if len(urls) <= len(dados_json):
         for i, item in enumerate(urls):
             dados_json[i]["Link"] = item
     
-        with open('Repository/file_cleaned.json', 'w') as arquivo:
+        with open('Repository/JSON/file_cleaned.json', 'w') as arquivo:
             json.dump(dados_json, arquivo, indent=4)
         print("urls adicionadas.")
     else:
-        print("A lista é maior do que o número de objetos no arquivo JSON.")
+        print("There are more itens than urls, check your files to understand it better")
 #Dynamic loading of webpages
 def wait_until_page_loads(driver:webdriver, timeout=30):
     """
@@ -196,9 +196,9 @@ def go_into_website(urls: list):
             try:
                 driver.quit()
                 rework_json_file()  # Calling rework_json_file() to clean and save a better version of the pre-file
-                json_data = json.load(open('Repository/file_cleaned.json', 'r', encoding='utf-8'))  #Loads the new file cleaned up
+                json_data = json.load(open('Repository/JSON/file_cleaned.json', 'r', encoding='utf-8'))  #Loads the new file cleaned up
                 json_data_with_scoop = add_scoop(json_data)  # Adds the summary
-                with open('Repository/file_cleaned.json', 'w', encoding='utf-8') as output_file:
+                with open('Repository/JSON/file_cleaned.json', 'w', encoding='utf-8') as output_file:
                     json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Saves the summary
             except Exception as e:
                 print(f"Data was not cleaned for {url}: {e}")
@@ -215,7 +215,7 @@ def json_to_csv():
     """
     Convert JSON data to CSV format with a specific separator.
     """
-    json_file = 'Repository/file_cleaned.json'
+    json_file = 'Repository/JSON/file_cleaned.json'
     csv_file = 'Repository/CSV/data.csv'
 
     # Check if the JSON file exists
