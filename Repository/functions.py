@@ -8,13 +8,11 @@ from selenium.webdriver.common.by import By
 from textsum.summarize import Summarizer
 import time
 
-
-
-
-
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------File Manipulation: json later csv--------------------------------------------#
+#----------------------------------------Related to: Title, Text, Scoop, URL-------------------------------------------#
+#----------------------------------------Still to go: Key Items, Image Links-------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
 
@@ -114,8 +112,7 @@ def sum_text(text:str):
     sum = Summarizer()
     scoop = sum.summarize_string(text)
     return scoop
-#Adds the summarized text to the json file, it is not yet really useful, scalability is not good, still figuring out what I can do to enhance that
-#It redoes already summarized texts, which takes some time, I tried to only do if there wasn't one done already, but didn't work
+#Adds the summarized text to the json file for each object
 def add_scoop(json_data):
     json_updated = []
     for item in json_data:
@@ -192,6 +189,11 @@ def go_into_website(urls: list):
             [text.append(every.text) for every in elem]      
             save("Text", text)
             
+            #Problem with image: Multiple unrelated images from different pages, how to identify which I want?
+            # elem = driver.find_element(By.TAG_NAME,"img")
+            # img = elem.get_attribute('src')
+            
+            
             print(f"\n-----------------------------------\nWebsite info for {url} got copied!\n-------------------------------------------")
         except Exception as e:
             print(f"ERROR!: {e}")
@@ -199,13 +201,13 @@ def go_into_website(urls: list):
             try:
                 driver.quit()
                 rework_json_file()  # Calling rework_json_file() to clean and save a better version of the pre-file
-                json_data = json.load(open('Repository/JSON/file_cleaned.json', 'r', encoding='utf-8'))  #Loads the new file cleaned up
-                json_data_with_scoop = add_scoop(json_data)  # Adds the summary
-                with open('Repository/JSON/file_cleaned.json', 'w', encoding='utf-8') as output_file:
-                    json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Saves the summary
             except Exception as e:
                 print(f"Data was not cleaned for {url}: {e}")
-    try:           
+    try:
+        json_data = json.load(open('Repository/JSON/file_cleaned.json', 'r', encoding='utf-8'))  #Loads the new file cleaned up
+        json_data_with_scoop = add_scoop(json_data)  # Adds the summary
+        with open('Repository/JSON/file_cleaned.json', 'w', encoding='utf-8') as output_file:
+            json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Saves the summary          
         add_urls(urls)  # Adding URLs to each object after everything is done to the files
     except FileNotFoundError:
         print("File not found.")
