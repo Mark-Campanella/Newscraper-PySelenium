@@ -23,11 +23,11 @@ def json_to_csv():
         writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
         # Write header
-        writer.writerow(['Titles', 'Text', 'Scoop'])
+        writer.writerow(['Link','Titles', 'Text', 'Scoop'])
 
         # Write rows
         for row in json_data:
-            writer.writerow([row.get('Titles', '').replace(';', ','), row.get('Text', '').replace(';', ','), row.get('Scoop', '').replace(';', ',')])
+            writer.writerow([row.get('Link', '').replace(';', ','),row.get('Titles', '').replace(';', ','), row.get('Text', '').replace(';', ','), row.get('Scoop', '').replace(';', ',')])
 
     print(f"CSV file '{csv_file}' has been created.")
 

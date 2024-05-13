@@ -13,12 +13,31 @@ from textsum.summarize import Summarizer
 #-----------------------------------------File Manipulation: json later csv--------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
+
+def flush_data():
+    '''
+    Resets Data
+    returns if the data was or not flushed
+    '''
+    try:
+        with open('Repository/file_cleaned.json', 'w', encoding='utf-8') as json_file:
+            json_file.write('')
+            
+        with open('Repository/pre_file.json', 'w', encoding='utf-8') as json_file:
+            json_file.write('')
+        
+        with open('Repository/CSV/data.csv', 'w', encoding='utf-8') as csv_file:
+            csv_file.write('')
+        return "Data flushed successfully!"
+    except Exception as e:
+        return f"Error flushing data: {e}"
+
 def save(item_name, items):
     '''
         Save desired items in a csv to be added in the repository
         
         Parameters:
-            -item_name: type of the object added, e.g.: Title, Text, Scoop, etc.
+            -item_name: type of the object added, e.g.: URL, Title, Text, Scoop, etc.
             -itens: object to be added 'str'
     '''
     df = pd.DataFrame({f'{item_name}': items})
@@ -33,14 +52,14 @@ def rework_json_file():
         data = [json.loads(line.strip()) for line in file if line.strip()]
 
     # Aglutinates text under their title
-    algutinated_text = aglutinate_text_to_title(data)
-
+    aglutinated_text = aglutinate_text_to_title(data)
+            
     # Where I keep the aglutinated text
     output_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'file_cleaned.json')
 
     # Save the result where I want
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
-        json.dump(algutinated_text, output_file, ensure_ascii=False, indent=4)
+        json.dump(aglutinated_text, output_file, ensure_ascii=False, indent=4)
     # Not relevant for final user
     print("Archive saved in:", output_file_path)
 
@@ -60,29 +79,24 @@ def aglutinate_text_to_title(data:list):
     Parameters:
         - List data
     '''
-    algutinated_text = []
+    aglutinated_text = []
     current_title = None
-    algutinated_text_aux = ""
+    aglutinated_text_aux = ""
 
     for item in data:
         if "Titles" in item:
-            # If there is a new title we add the other title to it and add the text aglutinated
             if current_title is not None:
-                algutinated_text.append({"Titles": current_title, "Text": algutinated_text_aux.strip()})
-                algutinated_text_aux = ""
-
-            # Add the other title
+                aglutinated_text.append({"Titles": current_title, "Text": aglutinated_text_aux.strip()})
+                aglutinated_text_aux = ""
             current_title = clean_text(item["Titles"])
         elif "Text" in item:
-            # Add the text
-            algutinated_text_aux += clean_text(item["Text"]) + "\n"
+            aglutinated_text_aux += clean_text(item["Text"]) + "\n"
 
-    # We add the result to a list of aglutinated texts
     if current_title is not None:
-        algutinated_text.append({"Titles": current_title, "Text": algutinated_text_aux.strip()})
+        aglutinated_text.append({"Titles": current_title, "Text": aglutinated_text_aux.strip()})
 
-    return algutinated_text
-            
+    return aglutinated_text
+
 def sum_text(text:str):
     '''
     This sum up the texts!
@@ -98,7 +112,7 @@ def sum_text(text:str):
 def add_scoop(json_data):
     json_updated = []
     for item in json_data:
-        if "Text" in item:
+        if "Text" in item and "Scoop" not in item:
             original_text = item["Text"]
             summarized_text = sum_text(original_text)
             # Add the scoop (sum) to the JSON in the new topic "Scoop"
@@ -106,13 +120,34 @@ def add_scoop(json_data):
         json_updated.append(item)
     return json_updated
 
+def add_urls(urls:list):
+    '''
+    Adds the urls to the json objects, after everything is already there in the object
+    
+    Parameters:
+        -list urls
+    '''
+    with open('Repository/file_cleaned.json', 'r') as arquivo:
+        dados_json = json.load(arquivo)
+    
+    # Verifica se o comprimento da lista é menor ou igual ao número de objetos no arquivo JSON
+    if len(urls) <= len(dados_json):
+        for i, item in enumerate(urls):
+            dados_json[i]["Link"] = item
+    
+        with open('Repository/file_cleaned.json', 'w') as arquivo:
+            json.dump(dados_json, arquivo, indent=4)
+        print("urls adicionadas.")
+    else:
+        print("A lista é maior do que o número de objetos no arquivo JSON.")
+
 def wait_until_page_loads(driver:webdriver, timeout=30):
     """
     Awaits page to load dynamically
 
     Parâmetros:
         - driver: Selenium's driver object
-        - timeout: in seconds, if none is given =  30
+        - int timeout: in seconds, if none is given =  30
     """
     start_time = time.time()  # When it Begins
     while True:
@@ -122,45 +157,53 @@ def wait_until_page_loads(driver:webdriver, timeout=30):
             break
         time.sleep(3)  # Before trying again it waits
 
-def go_into_website(url: str):
+def go_into_website(urls: list):
     '''
-    Uses Selenium to get into the webpage the user typed in the input (url)
-    Gather the title (h1) and the texts (p) from the webpage and closes the navigator
+    Uses Selenium to get into each webpage in the list of URLs provided by the user
+    Gather the title (h1) and the texts (p) from each webpage and close the navigator
     It calls rework_json_file() to clean up the 'pre-file' to the 'file_cleaned'
 
     Parameters:
-    str url = text of the link of the news website
+    list urls: list of URLs of the news websites
     '''
-    # Validating the URL
-    if not url.startswith("http://") and not url.startswith("https://"):
-        raise Exception("Unvalid url")
-
-    driver = webdriver.Chrome()
-    titles = []
-    text = []
-    try:
-        driver.get(url)
-        wait_until_page_loads(driver)
-        
-        elem = driver.find_elements(By.TAG_NAME, 'h1')
-        [titles.append(every.text) for every in elem]
-        save("Titles", titles)
-        
-        elem = driver.find_elements(By.TAG_NAME, 'p')
-        [text.append(every.text) for every in elem]      
-        save("Text", text)
-        
-        return "Website info got copied!"
-    except Exception as e:
-        return f"ERROR!: {e}"
-    finally:
+    for url in urls:
+        # Validating the URL
+        if not url.startswith("http://") and not url.startswith("https://"):
+            raise ValueError(f"Invalid URL: {url}")
+        driver = webdriver.Chrome()
+        titles = []
+        text = []
         try:
-            driver.quit()
-            rework_json_file()  # Chamando a função rework_json_file() para limpar e salvar o arquivo JSON
-            json_data = json.load(open('Repository/file_cleaned.json', 'r', encoding='utf-8'))  # Carregando o arquivo limpo
-            json_data_with_scoop = add_scoop(json_data)  # Adicionando resumos
-            with open('Repository/file_cleaned.json', 'w', encoding='utf-8') as output_file:
-                json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Salvando o arquivo com os resumos
-        except:
-            driver.quit()
-            return "Data was not cleaned!"
+            driver.get(url)
+            wait_until_page_loads(driver)
+            
+            elem = driver.find_elements(By.TAG_NAME, 'h1')
+            [titles.append(every.text) for every in elem]
+            save("Titles", titles)
+            
+            elem = driver.find_elements(By.TAG_NAME, 'p')
+            [text.append(every.text) for every in elem]      
+            save("Text", text)
+            
+            print(f"\n-----------------------------------\nWebsite info for {url} got copied!\n-------------------------------------------")
+        except Exception as e:
+            print(f"ERROR!: {e}")
+        finally:
+            try:
+                driver.quit()
+                rework_json_file()  # Calling rework_json_file() to clean and save a better version of the pre-file
+                json_data = json.load(open('Repository/file_cleaned.json', 'r', encoding='utf-8'))  #Loads the new file cleaned up
+                json_data_with_scoop = add_scoop(json_data)  # Adds the summary
+                with open('Repository/file_cleaned.json', 'w', encoding='utf-8') as output_file:
+                    json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Saves the summary
+            except Exception as e:
+                print(f"Data was not cleaned for {url}: {e}")
+    try:           
+        add_urls(urls)  # Adding URLs to each object after everything is done to the files
+    except FileNotFoundError:
+        print("File not found.")
+    except json.JSONDecodeError:
+        print("Invalid JSON format.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+                    
