@@ -1,4 +1,5 @@
 import json
+import csv
 import re
 import os
 from selenium import webdriver
@@ -14,10 +15,11 @@ from textsum.summarize import Summarizer
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
 
+#Deletes everything for a new session usage
 def flush_data():
     '''
-    Resets Data
-    returns if the data was or not flushed
+    Deletes the data from all files
+    Returns whether the data was flushed or not 
     '''
     try:
         with open('Repository/file_cleaned.json', 'w', encoding='utf-8') as json_file:
@@ -31,7 +33,7 @@ def flush_data():
         return "Data flushed successfully!"
     except Exception as e:
         return f"Error flushing data: {e}"
-
+#Saves each item in the pre-file to be organized later
 def save(item_name, items):
     '''
         Save desired items in a csv to be added in the repository
@@ -42,7 +44,7 @@ def save(item_name, items):
     '''
     df = pd.DataFrame({f'{item_name}': items})
     df.to_json('Repository/pre_file.json', orient='records', lines=True, mode='a', index=False)
-    
+#Takes the raw pre-file and transforms it in a useful and organized file    
 def rework_json_file():
     '''
     Rework the pre_file so it is closer to being correct, saves another file, it does not overwrite pre_file, but overwrite itself!
@@ -62,7 +64,7 @@ def rework_json_file():
         json.dump(aglutinated_text, output_file, ensure_ascii=False, indent=4)
     # Not relevant for final user
     print("Archive saved in:", output_file_path)
-
+#Removes unvalid chars and things like that
 def clean_text(text):
     '''
     Cleans the text (special chars etc.)! 
@@ -71,7 +73,8 @@ def clean_text(text):
         - str text
     '''
     return re.sub(r'[^\x00-\x7F]+', '', text)
-
+#This is what gather multiple titles and text togheter in one dict structure, or json object structure which are both compatibles
+#I prefer to work with json and separated files, notwithstanding, I understand it might be smarter to just hold in a dict and only later put it in a file
 def aglutinate_text_to_title(data:list):
     '''
     Aglutinates a list of texts under theirs respective titles!
@@ -96,7 +99,7 @@ def aglutinate_text_to_title(data:list):
         aglutinated_text.append({"Titles": current_title, "Text": aglutinated_text_aux.strip()})
 
     return aglutinated_text
-
+#This function uses a library (textsum) to summarize the texts, it is avaible in GitHub, really useful and easy to use library! 
 def sum_text(text:str):
     '''
     This sum up the texts!
@@ -108,7 +111,8 @@ def sum_text(text:str):
     sum = Summarizer()
     scoop = sum.summarize_string(text)
     return scoop
-    
+#Adds the summarized text to the json file, it is not yet really useful, scalability is not good, still figuring out what I can do to enhance that
+#It redoes already summarized texts, which takes some time, I tried to only do if there wasn't one done already, but didn't work
 def add_scoop(json_data):
     json_updated = []
     for item in json_data:
@@ -119,7 +123,7 @@ def add_scoop(json_data):
             item["Scoop"] = summarized_text
         json_updated.append(item)
     return json_updated
-
+#Function was a basic solution for adding URL to the file without having to change it or do something more elaborate, not ideal perhaps, but works
 def add_urls(urls:list):
     '''
     Adds the urls to the json objects, after everything is already there in the object
@@ -140,7 +144,7 @@ def add_urls(urls:list):
         print("urls adicionadas.")
     else:
         print("A lista é maior do que o número de objetos no arquivo JSON.")
-
+#Dynamic loading of webpages
 def wait_until_page_loads(driver:webdriver, timeout=30):
     """
     Awaits page to load dynamically
@@ -156,7 +160,7 @@ def wait_until_page_loads(driver:webdriver, timeout=30):
         if (end_time - start_time) > timeout or driver.execute_script("return document.readyState") == "complete":
             break
         time.sleep(3)  # Before trying again it waits
-
+#Function that calls other functions, first one and last one to execute
 def go_into_website(urls: list):
     '''
     Uses Selenium to get into each webpage in the list of URLs provided by the user
@@ -206,4 +210,32 @@ def go_into_website(urls: list):
         print("Invalid JSON format.")
     except Exception as e:
         print(f"An error occurred: {e}")
-                    
+#Last thing called, as I am currently sustaining a Sheets with the infos I want, this one helps to import things there (sep = ";")
+def json_to_csv():
+    """
+    Convert JSON data to CSV format with a specific separator.
+    """
+    json_file = 'Repository/file_cleaned.json'
+    csv_file = 'Repository/CSV/data.csv'
+
+    # Check if the JSON file exists
+    if not os.path.exists(json_file):
+        print("JSON file does not exist.")
+        return
+
+    # Load JSON data
+    with open(json_file, 'r', encoding='utf-8') as file:
+        json_data = json.load(file)
+
+    # Write JSON data to CSV file with a specific separator
+    with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+        # Write header
+        writer.writerow(['Link','Titles', 'Text', 'Scoop'])
+
+        # Write rows
+        for row in json_data:
+            writer.writerow([row.get('Link', '').replace(';', ','),row.get('Titles', '').replace(';', ','), row.get('Text', '').replace(';', ','), row.get('Scoop', '').replace(';', ',')])
+
+    print(f"CSV file '{csv_file}' has been created.")                    

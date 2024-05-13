@@ -1,9 +1,5 @@
-from templates.json_to_csv import json_to_csv
 from flask import Flask, render_template, request, send_file
-from functions import go_into_website, flush_data
-import os
-
-
+from functions import go_into_website, flush_data, json_to_csv
 
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
@@ -29,7 +25,7 @@ def index():
             return send_file('CSV/data.csv', as_attachment=True)
         except:
             return render_template('index.html', user_input="Website was not found!")
-    return render_template('index.html', user_input=None)
+    return render_template('index.html', user_input="")
 
 if __name__ == '__main__':
     newscrapper.run(debug=True)
