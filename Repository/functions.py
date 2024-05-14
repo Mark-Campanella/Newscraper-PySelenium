@@ -15,6 +15,7 @@ import time
 #----------------------------------------Still to go: Key Items, Image Links-------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
+
 #TODO Gather img src and Key Items in the text
 #Deletes everything for a new session usage
 def flush_data():
@@ -144,6 +145,63 @@ def add_urls(urls:list):
         print("urls adicionadas.")
     else:
         print("There are more itens than urls, check your files to understand it better")
+#Function tries to add a country and a brand in the csv      
+def try_find_country_brand():
+    '''
+    Looks if the country, region, or continent is mentioned (checked if it is in a lookup table)
+    Looks if a company is mentioned
+    If they are mentioned (anyone) it is added to the json
+    '''
+    
+    lookup_csv = 'Repository/CSV/lookup.csv'
+    json_file = 'Repository/JSON/file_cleaned.json'
+
+    try:
+        # Load lookup table
+        df = pd.read_csv(lookup_csv)
+        
+        # Load JSON data
+        with open(json_file, 'r', encoding='utf-8') as file:
+            json_data = json.load(file)
+        
+        # Iterate through each item in JSON data
+        for item in json_data:
+            title = str(item.get("Title", ""))  # Get the title from JSON item
+            text = str(item.get("Text", ""))    # Get the text from JSON item
+            try:
+                # Look for country mentions
+                country_found = False
+                for country in df["Country"]:
+                    if country in text:
+                        item["Country"] = country
+                        country_found = True
+                        break  # Stop searching for country once found
+                if not country_found: item["Country"] = ""
+            except: continue
+            try:
+                # Look for brand mentions in title
+                for brand in df["Brand"]:
+                    if brand in title:
+                        item["Brand"] = brand
+                        break  # Stop searching for brand once found 
+                    
+                # If brand is not found in title, look in text
+                if not item.get("Brand"):
+                    for brand in df["Brand"]:
+                        if brand in text:
+                            item["Brand"] = brand
+                            break  # Stop searching for brand once found
+                    if not item.get("Brand"): item["Brand"] = ""     
+            except: continue
+                
+        # Write updated JSON data back to file
+        with open(json_file, 'w') as outfile:
+            json.dump(json_data, outfile, indent=4)
+        
+        print("Brand and/or country added.")
+        
+    except Exception as e:
+        print("An error occurred:", e)
 #Dynamic loading of webpages
 def wait_until_page_loads(driver:webdriver, timeout=30):
     """
@@ -209,6 +267,7 @@ def go_into_website(urls: list):
         with open('Repository/JSON/file_cleaned.json', 'w', encoding='utf-8') as output_file:
             json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Saves the summary          
         add_urls(urls)  # Adding URLs to each object after everything is done to the files
+        try_find_country_brand()
     except FileNotFoundError:
         print("File not found.")
     except json.JSONDecodeError:
@@ -237,10 +296,10 @@ def json_to_csv():
         writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
         # Write header
-        writer.writerow(['Link','Titles', 'Text', 'Scoop'])
+        writer.writerow(['Brand','Country','Link','Titles','Scoop', 'Text' ])
 
         # Write rows
         for row in json_data:
-            writer.writerow([row.get('Link', '').replace(';', ','),row.get('Titles', '').replace(';', ','), row.get('Text', '').replace(';', ','), row.get('Scoop', '').replace(';', ',')])
+            writer.writerow([row.get('Brand', '').replace(';', ','), row.get('Country', '').replace(';', ','), row.get('Link', '').replace(';', ','), row.get('Titles', '').replace(';', ','), row.get('Scoop', '').replace(';', ','), row.get('Text', '').replace(';', ',')])
 
     print(f"CSV file '{csv_file}' has been created.")                    
