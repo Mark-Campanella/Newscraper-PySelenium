@@ -17,4 +17,6 @@
  <li>Title</li>
  <li>Text</li>
  <li>Scoop (Summarized text) </li> 
+ <li>Brand the article is about</li>
+ <li>Country the article is about</li>
 </ul>
