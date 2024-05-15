@@ -8,6 +8,8 @@ from selenium.webdriver.common.by import By
 from textsum.summarize import Summarizer
 import time
 
+
+
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------File Manipulation: json later csv--------------------------------------------#
@@ -101,6 +103,32 @@ def aglutinate_text_to_title(data:list):
         aglutinated_text.append({"Titles": current_title, "Text": aglutinated_text_aux.strip()})
 
     return aglutinated_text
+#Adds year and month of the article, considering that they are new!
+def add_year_month():
+    '''
+    It is considered that every news that we are scraping are new, so we get current month and year
+    '''
+    today = time.asctime(time.localtime())#gets current time tuple and convert to a string format date
+    year = today[len(today)-4:len(today)]#gets the year 
+    month = today[4:7]#gets the month
+    json_file = 'Repository/JSON/file_cleaned.json'
+    
+    # Load JSON data
+    with open(json_file, 'r', encoding='utf-8') as file:
+        json_data = json.load(file)
+    
+    # Iterate through each item in JSON data
+    for item in json_data:
+        try:
+            item["Year"] = year #Add year
+            item["Month"] = month #Add month
+        except: continue
+        
+    # Write updated JSON data back to file
+    with open(json_file, 'w') as outfile:
+        json.dump(json_data, outfile, indent=4)
+    
+    print("Year and Month added.")        
 #This function uses a library (textsum) to summarize the texts, it is avaible in GitHub, really useful and easy to use library! 
 def sum_text(text:str):
     '''
@@ -166,7 +194,7 @@ def try_find_country_brand():
         
         # Iterate through each item in JSON data
         for item in json_data:
-            title = str(item.get("Title", ""))  # Get the title from JSON item
+            title = str(item.get("Titles", ""))  # Get the title from JSON item
             text = str(item.get("Text", ""))    # Get the text from JSON item
             try:
                 # Look for country mentions
@@ -248,6 +276,8 @@ def go_into_website(urls: list):
             save("Text", text)
             
             #Problem with image: Multiple unrelated images from different pages, how to identify which I want?
+            #Idea 1: What if I searched the brand's name in the img src link? if contains, it gets, if not, it skips
+                #Problem: at first it doesn't have the brand name, to reaccess the websites would be required (not scalable nor efficient)
             # elem = driver.find_element(By.TAG_NAME,"img")
             # img = elem.get_attribute('src')
             
@@ -268,6 +298,7 @@ def go_into_website(urls: list):
             json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Saves the summary          
         add_urls(urls)  # Adding URLs to each object after everything is done to the files
         try_find_country_brand()
+        add_year_month()
     except FileNotFoundError:
         print("File not found.")
     except json.JSONDecodeError:
@@ -296,10 +327,10 @@ def json_to_csv():
         writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
         # Write header
-        writer.writerow(['Brand','Country','Link','Titles','Scoop', 'Text' ])
+        writer.writerow(['Year','Month','Brand','Country','Link','Titles','Scoop','Text'])
 
         # Write rows
         for row in json_data:
-            writer.writerow([row.get('Brand', '').replace(';', ','), row.get('Country', '').replace(';', ','), row.get('Link', '').replace(';', ','), row.get('Titles', '').replace(';', ','), row.get('Scoop', '').replace(';', ','), row.get('Text', '').replace(';', ',')])
+            writer.writerow([row.get('Year', '').replace(';', ','),row.get('Month', '').replace(';', ','),row.get('Brand', '').replace(';', ','), row.get('Country', '').replace(';', ','), row.get('Link', '').replace(';', ','), row.get('Titles', '').replace(';', ','), row.get('Scoop', '').replace(';', ','), row.get('Text', '').replace(';', ',')])
 
     print(f"CSV file '{csv_file}' has been created.")                    
