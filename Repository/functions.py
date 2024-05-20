@@ -26,13 +26,13 @@ def flush_data():
     Returns whether the data was flushed or not 
     '''
     try:
-        with open('Repository/JSON/file_cleaned.json', 'w', encoding='utf-8') as json_file:
+        with open('JSON/file_cleaned.json', 'w', encoding='utf-8') as json_file:
             json_file.write('')
             
-        with open('Repository/JSON/pre_file.json', 'w', encoding='utf-8') as json_file:
+        with open('JSON/pre_file.json', 'w', encoding='utf-8') as json_file:
             json_file.write('')
         
-        with open('Repository/CSV/data.csv', 'w', encoding='utf-8') as csv_file:
+        with open('CSV/data.csv', 'w', encoding='utf-8') as csv_file:
             csv_file.write('')
         return "Data flushed successfully!"
     except Exception as e:
@@ -47,13 +47,13 @@ def save(item_name, items):
             -itens: object to be added 'str'
     '''
     df = pd.DataFrame({f'{item_name}': items})
-    df.to_json('Repository/JSON/pre_file.json', orient='records', lines=True, mode='a', index=False)
+    df.to_json('JSON/pre_file.json', orient='records', lines=True, mode='a', index=False)
 #Takes the raw pre-file and transforms it in a useful and organized file    
 def rework_json_file():
     '''
     Rework the pre_file so it is closer to being correct, saves another file, it does not overwrite pre_file, but overwrite itself!
     '''
-    with open('Repository/JSON/pre_file.json', 'r', encoding='utf-8') as file:
+    with open('JSON/pre_file.json', 'r', encoding='utf-8') as file:
         # loads each JSON individually
         data = [json.loads(line.strip()) for line in file if line.strip()]
 
@@ -111,7 +111,7 @@ def add_year_month():
     today = time.asctime(time.localtime())#gets current time tuple and convert to a string format date
     year = today[len(today)-4:len(today)]#gets the year 
     month = today[4:7]#gets the month
-    json_file = 'Repository/JSON/file_cleaned.json'
+    json_file = 'JSON/file_cleaned.json'
     
     # Load JSON data
     with open(json_file, 'r', encoding='utf-8') as file:
@@ -160,7 +160,7 @@ def add_urls(urls:list):
     Parameters:
         -list urls
     '''
-    with open('Repository/JSON/file_cleaned.json', 'r') as arquivo:
+    with open('JSON/file_cleaned.json', 'r') as arquivo:
         dados_json = json.load(arquivo)
     
     # If there is the same amout of itens and urls
@@ -168,7 +168,7 @@ def add_urls(urls:list):
         for i, item in enumerate(urls):
             dados_json[i]["Link"] = item
     
-        with open('Repository/JSON/file_cleaned.json', 'w') as arquivo:
+        with open('JSON/file_cleaned.json', 'w') as arquivo:
             json.dump(dados_json, arquivo, indent=4)
         print("urls adicionadas.")
     else:
@@ -181,8 +181,8 @@ def try_find_country_brand():
     If they are mentioned (anyone) it is added to the json
     '''
     
-    lookup_csv = 'Repository/CSV/lookup.csv'
-    json_file = 'Repository/JSON/file_cleaned.json'
+    lookup_csv = 'CSV/lookup.csv'
+    json_file = 'JSON/file_cleaned.json'
 
     try:
         # Load lookup table
@@ -292,9 +292,9 @@ def go_into_website(urls: list):
             except Exception as e:
                 print(f"Data was not cleaned for {url}: {e}")
     try:
-        json_data = json.load(open('Repository/JSON/file_cleaned.json', 'r', encoding='utf-8'))  #Loads the new file cleaned up
+        json_data = json.load(open('JSON/file_cleaned.json', 'r', encoding='utf-8'))  #Loads the new file cleaned up
         json_data_with_scoop = add_scoop(json_data)  # Adds the summary
-        with open('Repository/JSON/file_cleaned.json', 'w', encoding='utf-8') as output_file:
+        with open('JSON/file_cleaned.json', 'w', encoding='utf-8') as output_file:
             json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Saves the summary          
         add_urls(urls)  # Adding URLs to each object after everything is done to the files
         try_find_country_brand()
@@ -310,8 +310,8 @@ def json_to_csv():
     """
     Convert JSON data to CSV format with a specific separator.
     """
-    json_file = 'Repository/JSON/file_cleaned.json'
-    csv_file = 'Repository/CSV/data.csv'
+    json_file = 'JSON/file_cleaned.json'
+    csv_file = 'CSV/data.csv'
 
     # Check if the JSON file exists
     if not os.path.exists(json_file):
