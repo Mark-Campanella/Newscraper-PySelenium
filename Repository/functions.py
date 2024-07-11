@@ -1,336 +1,329 @@
-import csv
-import json
-import os
 import pandas as pd
 import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from textsum.summarize import Summarizer
 import time
-
-
+import os
 
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
-#-----------------------------------------File Manipulation: json later csv--------------------------------------------#
+#--------------------------------------File Manipulation: dataframe later csv------------------------------------------#
 #---------------------------------Related to: Title, Text, Scoop, URL, Brand, Country----------------------------------#
-#----------------------------------Still to go: Key Items, Image Links, Month, Year------------------------------------#
+#----------------------------------Still to go: Key Items, Image Links-------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
-
-#TODO Gather img src and Key Items in the text, gather Year/Month from datetime
+path_to_csv_data = 'CSV/data.csv'
+path_to_csv_lookup = 'CSV/lookup.csv'
+#TODO Gather img src and Key Items in the text, correct Year/Month format
 #Deletes everything for a new session usage
 def flush_data():
-    '''
+    """
     Deletes the data from all files
     Returns whether the data was flushed or not 
-    '''
+    """
     try:
-        with open('JSON/file_cleaned.json', 'w', encoding='utf-8') as json_file:
-            json_file.write('')
-            
-        with open('JSON/pre_file.json', 'w', encoding='utf-8') as json_file:
-            json_file.write('')
-        
-        with open('CSV/data.csv', 'w', encoding='utf-8') as csv_file:
-            csv_file.write('')
+        open(path_to_csv_data, 'w', encoding='utf-8').close()
         return "Data flushed successfully!"
     except Exception as e:
         return f"Error flushing data: {e}"
-#Saves each item in the pre-file to be organized later
-def save(item_name, items):
-    '''
-        Save desired items in a csv to be added in the repository
-        
-        Parameters:
-            -item_name: type of the object added, e.g.: URL, Title, Text, Scoop, etc.
-            -itens: object to be added 'str'
-    '''
-    df = pd.DataFrame({f'{item_name}': items})
-    df.to_json('JSON/pre_file.json', orient='records', lines=True, mode='a', index=False)
-#Takes the raw pre-file and transforms it in a useful and organized file    
-def rework_json_file():
-    '''
-    Rework the pre_file so it is closer to being correct, saves another file, it does not overwrite pre_file, but overwrite itself!
-    '''
-    with open('JSON/pre_file.json', 'r', encoding='utf-8') as file:
-        # loads each JSON individually
-        data = [json.loads(line.strip()) for line in file if line.strip()]
 
-    # Aglutinates text under their title
-    aglutinated_text = aglutinate_text_to_title(data)
-            
-    # Where I keep the aglutinated text
-    output_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'JSON/file_cleaned.json')
-
-    # Save the result where I want
-    with open(output_file_path, 'w', encoding='utf-8') as output_file:
-        json.dump(aglutinated_text, output_file, ensure_ascii=False, indent=4)
-    # Not relevant for final user
-    print("Archive saved in:", output_file_path)
-#Removes unvalid chars and things like that
-def clean_text(text):
-    '''
-    Cleans the text (special chars etc.)! 
+def save_to_dataframe(dataframe, item_name, items):
+    """
+    Save desired items to the dataframe to be added in the repository
     
     Parameters:
-        - str text
-    '''
-    return re.sub(r'[^\x00-\x7F]+', '', text)
-#This is what gather multiple titles and text togheter in one dict structure, or json object structure which are both compatibles
-#I prefer to work with json and separated files, notwithstanding, I understand it might be smarter to just hold in a dict and only later put it in a file
-def aglutinate_text_to_title(data:list):
-    '''
+        - dataframe: pandas DataFrame to append data
+        - item_name: type of the object added, e.g.: URL, Title, Text, Scoop, etc.
+        - items: object to be added 'str'
+    """
+    temp_df = pd.DataFrame({f'{item_name}': items})
+    return pd.concat([dataframe, temp_df], ignore_index=True)
+
+def aglutinate_text_to_title(data):
+    """
     Aglutinates a list of texts under theirs respective titles!
     
     Parameters:
-        - List data
-    '''
+        - DataFrame data
+    """
     aglutinated_text = []
     current_title = None
     aglutinated_text_aux = ""
 
-    for item in data:
-        if "Titles" in item:
+    # Ensure all values are strings
+    data = data.fillna("").astype(str)
+
+    for _, item in data.iterrows():
+        if "Titles" in item and item["Titles"]:
             if current_title is not None:
                 aglutinated_text.append({"Titles": current_title, "Text": aglutinated_text_aux.strip()})
                 aglutinated_text_aux = ""
             current_title = clean_text(item["Titles"])
-        elif "Text" in item:
+        elif "Text" in item and item["Text"]:
             aglutinated_text_aux += clean_text(item["Text"]) + "\n"
 
     if current_title is not None:
         aglutinated_text.append({"Titles": current_title, "Text": aglutinated_text_aux.strip()})
 
-    return aglutinated_text
-#Adds year and month of the article, considering that they are new!
-def add_year_month():
-    '''
-    It is considered that every news that we are scraping are new, so we get current month and year
-    '''
-    today = time.asctime(time.localtime())#gets current time tuple and convert to a string format date
-    year = today[len(today)-4:len(today)]#gets the year 
-    month = today[4:7]#gets the month
-    json_file = 'JSON/file_cleaned.json'
-    
-    # Load JSON data
-    with open(json_file, 'r', encoding='utf-8') as file:
-        json_data = json.load(file)
-    
-    # Iterate through each item in JSON data
-    for item in json_data:
-        try:
-            item["Year"] = year #Add year
-            item["Month"] = month #Add month
-        except: continue
-        
-    # Write updated JSON data back to file
-    with open(json_file, 'w') as outfile:
-        json.dump(json_data, outfile, indent=4)
-    
-    print("Year and Month added.")        
-#This function uses a library (textsum) to summarize the texts, it is avaible in GitHub, really useful and easy to use library! 
-def sum_text(text:str):
-    '''
-    This sum up the texts!
-    
-    Parameters:
-    
-        - str Text
-    '''
-    sum = Summarizer()
-    scoop = sum.summarize_string(text)
-    return scoop
-#Adds the summarized text to the json file for each object
-def add_scoop(json_data):
-    json_updated = []
-    for item in json_data:
-        if "Text" in item and "Scoop" not in item:
-            original_text = item["Text"]
-            summarized_text = sum_text(original_text)
-            # Add the scoop (sum) to the JSON in the new topic "Scoop"
-            item["Scoop"] = summarized_text
-        json_updated.append(item)
-    return json_updated
-#Function was a basic solution for adding URL to the file without having to change it or do something more elaborate, not ideal perhaps, but works
-def add_urls(urls:list):
-    '''
-    Adds the urls to the json objects, after everything is already there in the object
-    
-    Parameters:
-        -list urls
-    '''
-    with open('JSON/file_cleaned.json', 'r') as arquivo:
-        dados_json = json.load(arquivo)
-    
-    # If there is the same amout of itens and urls
-    if len(urls) <= len(dados_json):
-        for i, item in enumerate(urls):
-            dados_json[i]["Link"] = item
-    
-        with open('JSON/file_cleaned.json', 'w') as arquivo:
-            json.dump(dados_json, arquivo, indent=4)
-        print("urls adicionadas.")
-    else:
-        print("There are more itens than urls, check your files to understand it better")
-#Function tries to add a country and a brand in the csv      
-def try_find_country_brand():
-    '''
-    Looks if the country, region, or continent is mentioned (checked if it is in a lookup table)
-    Looks if a company is mentioned
-    If they are mentioned (anyone) it is added to the json
-    '''
-    
-    lookup_csv = 'CSV/lookup.csv'
-    json_file = 'JSON/file_cleaned.json'
+    return pd.DataFrame(aglutinated_text)
 
+def clean_text(text):
+    """
+    Cleans the text (special chars etc.)! 
+    
+    Parameters:
+        - str text
+    """
+    return re.sub(r'[^\x00-\x7F]+', '', text)
+
+def add_year_month(dataframe):
+    """
+    It is considered that every news that we are scraping are new, so we get current month and year
+    Repo is in sheets and month was being added manually with the structure of mm/dd/yy with day always 01,
+    I am just adding the day of scraping because it is irrelevant to change and add codelines here
+    
+    Parameters:
+        - dataframe: pd.DataFrame
+    """
     try:
-        # Load lookup table
-        df = pd.read_csv(lookup_csv)
+        today = time.localtime()
+        year = today.tm_year
+        month = time.strftime('%m/%d/%Y', today)
         
-        # Load JSON data
-        with open(json_file, 'r', encoding='utf-8') as file:
-            json_data = json.load(file)
+        dataframe['Year'] = year
+        dataframe['Month'] = month
+    except:
+        dataframe['Year'] = ''
+        dataframe['Month'] = ''
+    finally:
+        return dataframe
+
+def sum_text(text):
+        """
+        This sum up the texts!
+
+        Parameters:
+            - text: str
+        """
+        try:
+            sum = Summarizer()
+            return sum.summarize_string(text)
+        except:
+            return ""
+def add_scoop(dataframe):
+    '''
+    Adds a Scoop in the text. I'm using a downloaded Learned Machine from the Textsum library.
+    It is not ideal, it is massive, slow, etc. But it is easy to implement and time/storage is not a problem in my case.
+    '''
         
-        # Iterate through each item in JSON data
-        for item in json_data:
-            title = str(item.get("Titles", ""))  # Get the title from JSON item
-            text = str(item.get("Text", ""))    # Get the text from JSON item
-            try:
-                # Look for country mentions
-                country_found = False
-                for country in df["Country"]:
-                    if country in text:
-                        item["Country"] = country
-                        country_found = True
-                        break  # Stop searching for country once found
-                if not country_found: item["Country"] = ""
-            except: continue
-            try:
-                # Look for brand mentions in title
-                for brand in df["Brand"]:
-                    if brand in title:
-                        item["Brand"] = brand
-                        break  # Stop searching for brand once found 
-                    
-                # If brand is not found in title, look in text
-                if not item.get("Brand"):
-                    for brand in df["Brand"]:
-                        if brand in text:
-                            item["Brand"] = brand
-                            break  # Stop searching for brand once found
-                    if not item.get("Brand"): item["Brand"] = ""     
-            except: continue
-                
-        # Write updated JSON data back to file
-        with open(json_file, 'w') as outfile:
-            json.dump(json_data, outfile, indent=4)
+    dataframe['Scoop'] = dataframe['Text'].apply(lambda x: sum_text(x) if pd.notnull(x) else "")
+    return dataframe
+
+def add_urls(dataframe, urls):
+    """
+    Adds the urls to the dataframe
+    
+    Parameters:
+        - dataframe: pandas DataFrame to add URLs
+        - list urls: list of URLs
+    """
+    if len(urls) > len(dataframe): print("\n\n-------An error has occurred scrapping one or more of the links given,"+
+                                         " check the 'Links' field for mistakes before adding to the repository!----------\n\n")
+    dataframe['Link'] = urls[:len(dataframe)]
+    return dataframe
+
+def try_find_country_brand(dataframe, lookup_csv=path_to_csv_lookup):
+    """
+    Looks if any word in the title or text matches a country or brand in the lookup table.
+    Adds the country or brand to the dataframe if found.
+    
+    Parameters:
+        - dataframe: pandas DataFrame containing the text data.
+        - lookup_csv: path to the CSV file containing the lookup data.
+    """
+    #tries to find the lookup file
+    if not os.path.exists(lookup_csv):
+        print(f"Lookup file {lookup_csv} not found.")
+        return dataframe
+    
+    #tries to read the lookup, if it is empty → nothing to see, break; if it doesn't have the columns needed → insuficient data to work, break
+    try:
+        df_lookup = pd.read_csv(lookup_csv)
+        if df_lookup.empty:
+            print(f"Lookup file {lookup_csv} is empty.")
+            return dataframe
+        # Check if necessary columns are present
+        if 'Country' not in df_lookup.columns or 'Brand' not in df_lookup.columns:
+            print(f"Lookup file {lookup_csv} does not contain 'Country' or 'Brand' columns.")
+            return dataframe
+
+        def find_country(text):
+            '''
+            Find a country in the text:\n
+                \t - if there is no text: break\n
+                \t - for each word in the text: try to see if word is str\n
+                \t - if the word is in country: return country, else return None\n
+            Parameters:
+                - text: str
+            '''
+            if pd.isna(text):
+                return ""
+            words = text.split()
+            for word in words:
+                if isinstance(word, str):
+                    for country in df_lookup['Country']:
+                        if isinstance(country, str) and word.lower() == country.lower():
+                            return country
+            return ""
         
-        print("Brand and/or country added.")
+        def find_brand(text):
+            '''
+            Find a brand in the text:\n
+                \t - if there is no text: break\n
+                \t - for each word in the text: try to see if word is str\n
+                \t - if the word is in brand: return brand, else return None\n
+            Parameters:
+                - text: str
+            '''
+            if pd.isna(text):
+                return ""
+            words = text.split()
+            for word in words:
+                if isinstance(word, str):
+                    for brand in df_lookup['Brand']:
+                        if word.lower() == brand.lower():
+                            return brand
+            return ""
+        #Here it will apply the methods to find Country and Brand, first it will try to look in the title, then in the text
+        try:
+            dataframe['Country'] = dataframe['Titles'].apply(lambda x: find_country(x) if pd.notnull(x) else "")
+            dataframe['Country'] = dataframe.apply(lambda row: find_country(row['Text']) if row['Country'] == "" else row['Country'], axis=1)
+        except Exception as e:
+            print("Not able to add Country, error: ", e)
+
+        try:
+            dataframe['Brand'] = dataframe['Titles'].apply(lambda x: find_brand(x) if pd.notnull(x) else "")
+            dataframe['Brand'] = dataframe.apply(lambda row: find_brand(row['Text']) if row['Brand'] == "" else row['Brand'], axis=1)
+        except Exception as e:
+            print("Not able to add Brand, error: ", e)
         
+        return dataframe
+    except pd.errors.EmptyDataError as e:
+        print("No columns to parse from file: ",e)
+        return dataframe
     except Exception as e:
-        print("An error occurred:", e)
-#Dynamic loading of webpages
-def wait_until_page_loads(driver:webdriver, timeout=30):
+        print(f"An error occurred: {e}")
+        return dataframe
+
+def wait_until_page_loads(driver, timeout=30):
     """
     Awaits page to load dynamically
 
-    Parâmetros:
+    Parameters:
         - driver: Selenium's driver object
         - int timeout: in seconds, if none is given =  30
     """
-    start_time = time.time()  # When it Begins
+    start_time = time.time()
     while True:
-        end_time = time.time()  # When it ends
-        # If timeout happens or the object html loads, it gets out of the loop
-        if (end_time - start_time) > timeout or driver.execute_script("return document.readyState") == "complete":
+        if (time.time() - start_time) > timeout or driver.execute_script("return document.readyState") == "complete":
             break
-        time.sleep(3)  # Before trying again it waits
-#Function that calls other functions, first one and last one to execute
-def go_into_website(urls: list):
-    '''
+        time.sleep(3)
+
+def go_into_website(urls):
+    """
     Uses Selenium to get into each webpage in the list of URLs provided by the user
-    Gather the title (h1) and the texts (p) from each webpage and close the navigator
-    It calls rework_json_file() to clean up the 'pre-file' to the 'file_cleaned'
+    Gather the title (h1), the texts (p), and image links from each webpage and close the navigator
 
     Parameters:
-    list urls: list of URLs of the news websites
-    '''
-    for url in urls:
-        # Validating the URL
-        if not url.startswith("http://") and not url.startswith("https://"):
-            raise ValueError(f"Invalid URL: {url}")
-        driver = webdriver.Chrome()
-        titles = []
-        text = []
-        try:
-            driver.get(url)
-            wait_until_page_loads(driver)
-            
-            elem = driver.find_elements(By.TAG_NAME, 'h1')
-            [titles.append(every.text) for every in elem]
-            save("Titles", titles)
-            
-            elem = driver.find_elements(By.TAG_NAME, 'p')
-            [text.append(every.text) for every in elem]      
-            save("Text", text)
-            
-            #Problem with image: Multiple unrelated images from different pages, how to identify which I want?
-            #Idea 1: What if I searched the brand's name in the img src link? if contains, it gets, if not, it skips
-                #Problem: at first it doesn't have the brand name, to reaccess the websites would be required (not scalable nor efficient)
-            # elem = driver.find_element(By.TAG_NAME,"img")
-            # img = elem.get_attribute('src')
-            
-            
-            print(f"\n-----------------------------------\nWebsite info for {url} got copied!\n-------------------------------------------")
-        except Exception as e:
-            print(f"ERROR!: {e}")
-        finally:
-            try:
-                driver.quit()
-                rework_json_file()  # Calling rework_json_file() to clean and save a better version of the pre-file
-            except Exception as e:
-                print(f"Data was not cleaned for {url}: {e}")
+        list urls: list of URLs of the news websites
+    """
+    driver = webdriver.Chrome()
+    dataframe = pd.DataFrame()
+    # image_links = []
+
     try:
-        json_data = json.load(open('JSON/file_cleaned.json', 'r', encoding='utf-8'))  #Loads the new file cleaned up
-        json_data_with_scoop = add_scoop(json_data)  # Adds the summary
-        with open('JSON/file_cleaned.json', 'w', encoding='utf-8') as output_file:
-            json.dump(json_data_with_scoop, output_file, ensure_ascii=False, indent=4)  # Saves the summary          
-        add_urls(urls)  # Adding URLs to each object after everything is done to the files
-        try_find_country_brand()
-        add_year_month()
-    except FileNotFoundError:
-        print("File not found.")
-    except json.JSONDecodeError:
-        print("Invalid JSON format.")
+        for url in urls:
+            try:
+                if not url.startswith("http://") and not url.startswith("https://"):
+                    raise ValueError(f"Invalid URL: {url}")
+
+                driver.get(url)
+                wait_until_page_loads(driver)
+                
+                try:
+                    titles = [clean_text(every.text) for every in driver.find_elements(By.TAG_NAME, 'h1')]
+                    if titles == None:
+                        h1_elements = driver.find_elements(By.TAG_NAME, 'h1')
+                        for h1 in h1_elements:
+                            span_elements = h1.find_elements(By.TAG_NAME, 'span')
+                            for span in span_elements:
+                                titles.append(clean_text(span.text))
+                except:
+                    try:
+                        titles = [clean_text(every.text) for every in driver.find_elements(By.TAG_NAME, 'h2')]
+                    except:
+                        if titles == "":
+                            h2_elements = driver.find_elements(By.TAG_NAME, 'h2')
+                            for h2 in h2_elements:
+                                span_elements = h2.find_elements(By.TAG_NAME, 'span')
+                                for span in span_elements:
+                                    titles.append(clean_text(span.text))
+
+                
+                try:
+                    try: texts = [clean_text(every.text) for every in driver.find_elements(By.TAG_NAME, 'p')]
+                    except: pass
+                    try: texts.append([clean_text(every.text) for every in driver.find_elements(By.TAG_NAME, 'h3')])
+                    except: pass
+                    try: texts.append([clean_text(every.text) for every in driver.find_elements(By.TAG_NAME, 'h4')])
+                    except: pass                     
+                    try: texts.append([clean_text(every.text) for every in driver.find_elements(By.TAG_NAME, 'li')])
+                    except: pass
+                except:
+                    try: texts = [clean_text(every.text) for every in (driver.find_elements(By.TAG_NAME, 'span'))]
+                    except Exception as e: print("\n\n No text found :( : ", e) 
+                
+                # images = driver.find_elements(By.TAG_NAME, 'img')
+                # title_keywords = set(re.findall(r'\w+', ' '.join(titles).lower()))
+                # image_link = next((img.get_attribute('src') for img in images if any(keyword in img.get_attribute('src').lower() for keyword in title_keywords)), "")
+                # image_links.append(image_link if image_link else "")
+
+                dataframe = save_to_dataframe(dataframe, "Titles", titles)
+                dataframe = save_to_dataframe(dataframe, "Text", texts)
+                
+                print(f"\n-----------------------------------\nWebsite info for {url} got copied!\n-------------------------------------------")
+            except Exception as e:
+                print(f"ERROR!: {e}")
+    finally:
+        driver.quit()
+
+    try:
+        dataframe = aglutinate_text_to_title(dataframe)
+        dataframe = add_scoop(dataframe)
+        dataframe = add_urls(dataframe, urls)
+        # dataframe['ImageLink'] = image_links
+        dataframe = try_find_country_brand(dataframe)
+        dataframe = add_year_month(dataframe)
     except Exception as e:
-        print(f"An error occurred: {e}")
-#Last thing called, as I am currently sustaining a Sheets with the infos I want, this one helps to import things there (sep = ";")
-def json_to_csv():
+        print("Something went wrong: ", e)
+
+    return dataframe
+
+def dataframe_to_csv(dataframe):
     """
-    Convert JSON data to CSV format with a specific separator.
+    Convert DataFrame data to CSV format with a specific separator (';').
     """
-    json_file = 'JSON/file_cleaned.json'
-    csv_file = 'CSV/data.csv'
-
-    # Check if the JSON file exists
-    if not os.path.exists(json_file):
-        print("JSON file does not exist.")
-        return
-
-    # Load JSON data
-    with open(json_file, 'r', encoding='utf-8') as file:
-        json_data = json.load(file)
-
-    # Write JSON data to CSV file with a specific separator
-    with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-
-        # Write header
-        writer.writerow(['Year','Month','Brand','Country','Link','Titles','Scoop','Text'])
-
-        # Write rows
-        for row in json_data:
-            writer.writerow([row.get('Year', '').replace(';', ','),row.get('Month', '').replace(';', ','),row.get('Brand', '').replace(';', ','), row.get('Country', '').replace(';', ','), row.get('Link', '').replace(';', ','), row.get('Titles', '').replace(';', ','), row.get('Scoop', '').replace(';', ','), row.get('Text', '').replace(';', ',')])
-
-    print(f"CSV file '{csv_file}' has been created.")                    
+    try:
+        csv_file = path_to_csv_data
+    except Exception as e: print("Unable to find the file, error: ", e)
+    header = ["Year", "Month", "Corporate", "Brand", "Att 1", "Att 2", "Product", "Region", "Country", 
+              "Link", "Titles", "Scoop", "Article photo", "Text", "Type of News"]
+    # Add missing columns with empty values
+    for col in header:
+        if col not in dataframe.columns:
+            dataframe[col] = ""
+    try:
+        dataframe.to_csv(csv_file, sep=';', index=False, columns=header)
+        print(f"CSV file '{csv_file}' has been created.")
+    except Exception as e: print("Could not create the CSV file, error: ", e)
