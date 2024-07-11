@@ -1,257 +1,252 @@
-Brand,Country
-Acme,Africa
-AEG,Arabia
-AGA Ranges,Argentina
-Altus,Australia
-Amana,Bangladesh
-Amazon,Belgium
-Amber,Bolivia
-American Standard,Brazil
-Amica,Cambodia
-Antique,Canada
-Apple,Chile
-Arcelik,China
-Arctic,Colombia
-Arisit,Dubai
-Ariston,East Africa
-Artistry,Ecuador
-ASKO,Egypt
-Atlas,Europe
-Avanti,France
-Balay,Germany
-Bauknecht,Ghana
-Baumatic,Global
-beko,Greece
-Beldray,Guatemala
-Belling,Hungary
-Bertazzoni,India
-Bespoke,Indonesia
-Big Chill,Iran
-Black + Decker,Ireland
-Black&Decker,Italy
-Blomberg,Japan
-BlueStar,Kenya
-Bob,Korea
-Bosch,Malaysia
-Bose,Mexico
-Brastemp,Morocco
-Brightwell,Netherlands
-Britania,New Zealand
-Britannia,Nigeria
-Brown,Pakistan
-BSH,Panama
-Bugu,Peru
-Café,Philippines
-Cafe by GE,Poland
-Café by GE,Romania
-Candy,Russia
-Cannon,Scandinavia
-Capitol,Singapure
-Caple,Slovenia
-Casarte,South Africa
-CDA,Spain
-CHARVET,Sweden
-Coldex,Switzerland
-Constructa,Taiwan
-Cosmo Kitchen Products,Thailand
-Cove,Turkey
-Criterion,UAE
-Crossover,Uganda
-Cuisina,UK
-Cuisineart,USA
-Daan Tech,Vietnam
-Dacor,
-Daewoo,
-Danby,
-Dawlance,
-Dayoo,
-DCS,
-De Dietrich,
-Defy,
-Easy,
-Elco,
-Electrolux,
-Elektrabregenz,
-Elica (Midea?),
-Elle,
-Emerson,
-Eurolec,
-EuroMonitor,
-Faber,
-Fagor,
-Feesiluu,
-Fireview,
-Fisher & Paykel,
-Fisher&Paykel,
-Five Star,
-Flavel,
-Fotile,
-"Foxconn, Vestel, Hisense in the US",
-Franke,
-Franke Faber,
-Frigidaire,
-Fulgor,
-Gaggenau,
-Galanz,
-GE,
-GE Appliances,
-GE Profile,
-GE(alliance),
-GfK,
-GiantexUK,
-Glem,
-Glem Black,
-Godrej,
-Google,
-Gorenje,
-Gram,
-Gree,
-Grundig,
-Haefele,
-Haier,
-Haier (before Haier bought Candy),
-Hansa,
-HAVA,
-Heartland,
-Heatworks,
-Highland,
-Hisense,
-Hisense/Gorenje,
-Hitachi,
-Homark,
-Hoover,
-Hoshizaki,
-Hotpoint,
-Hotpoint (GE has North American Rights),
-IFB,
-IFB Neptune,
-Ignis,
-IKEA,
-ILVE,
-Indesit,
-Inglis,
-Insignia,
-InSinkerator,
-ISE,
-Jeenow,
-Jenn-Air,
-Jinling,
-Joyoung,
-Junker,
-Kelvinator,
-Kenmore,
-Kenmore/Sears,
-King,
-KitchenAid,
-KMART,
-Kohler,
-Koryo,
-Kucht,
-Kucht Professional,
-LACANCHE,
-Lancel,
-Leader,
-LEC,
-Leisure,
-LG,
-Liebherr,
-Mabe,
-Macom,
-MagicChef,
-Marssenger,
-Marvel,
-Marvel Scientific,
-Matter,
-Mayerbach,
-Maytag,
-Meta,
-Microsoft,
-Midea,
-Miele,
-Moda,
-moffat,
-Molteni,
-Monogram,
-multiple,
-National,
-Neff,
-New World,
-no specific,
-Nokia,
-Northland,
-Northstar,
-NXR,
-Orbysun,
-other,
-P&G,
-Panasonic,
-Perlick,
-Persil,
-Philco,
-Philips,
-PlanetCare,
-Premier,
-Profile,
-Profilo,
-Qudos,
-Resojet Pvt Ltd,
-Richmond,
-Robam,
-Roborock,
-Roper,
-Rorgue,
-Samsung,
-Scholtès,
-SEB,
-Servis,
-Sharp,
-Shriro,
-Siemens,
-SK Magic,
-SMEG,
-SpeedQueen,
-Staber,
-Sterling,
-Stoves,
-Sub-Zero,
-"Sub-Zero, Wolf",
-"Sub-Zero, Wolf, Cove",
-Summit,
-Super Plastronics Pvt Ltd ,
-surfing,
-Swan,
-Tappan,
-TCL,
-Teka,
-Tetra,
-The Bob,
-Thermador,
-Thor Kitchen,
-Tide,
-Toshiba,
-Tramontina,
-Trane,
-TTK Prestige,
-U-Line,
-Ufesa,
-V-Zug,
-Vatti,
-Verona,
-Vestel,
-Victoria Plum,
-Viking,
-Viva,
-Voltas,
-VZug,
-Wash Cycle Laundry,
-Westinghouse,
-Whirlpool,
-White Knight,
-Whitehouse,
-Wolf,
-Wyzr,
-Xiaomi,
-Yale,
-Zanussi,
-Zelmer,
-ZLine,
+Country,Flag,Continent,Region,,Brand,Company,Logo
+Afghanistan,https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg,Asia,ASIA S,,De Dietrich,ABN AMRO,https://upload.wikimedia.org/wikipedia/commons/4/4c/DeDietrich_logo.jpg
+Africa,https://upload.wikimedia.org/wikipedia/commons/8/86/Africa_%28orthographic_projection%29.svg,Africa,EMEA,,Marvel,AGA Foodservice Group,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRwi1tFYpZNtg5Pl9Q_f9Q1Twv1EavFO4NuA&s
+Albania,https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg,Europe,EMEA,,Northland,AGA Foodservice Group,https://upload.wikimedia.org/wikipedia/commons/d/d3/Northland_logo_%28medium%29.jpg
+Algeria,https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg,Africa,EMEA,,moffat,Ali Group,https://www.aligroup.com/wp-content/uploads/2023/11/Moffat_no-1.jpg
+America,https://upload.wikimedia.org/wikipedia/commons/c/ca/Americas_%28orthographic_projection%29.svg,Americas,LAR,,SpeedQueen,Alliance Laundry Systems LLC,https://speedqueen.com/wp-content/uploads/2019/08/SpeedQueen_WorldNo1InSelfServiceLaundry_LicenseStore_Reverse_CMYK.jpg
+Antigua and Barbuda,https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg,Americas,LAR N,,Altus,Altus,https://www.nobilia.de/fileadmin/_processed_/d/6/csm_altus_481f73f2db.jpg
+Argentina,https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg,Americas,LAR S,,Amazon,Amazon,https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg
+Armenia,https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg,Asia,EMEA,,Amber,Amber,https://bl-i.thgim.com/public/news/almnrb/article67701750.ece/alternates/LANDSCAPE_1200/BL04_Amber%20Enterprises.jpg
+Asia,https://upload.wikimedia.org/wikipedia/commons/b/bd/Asia_%28orthographic_projection%29_without_New_Guinea.svg,Asia,ASIA,,Resojet Pvt Ltd,Amber,https://media.licdn.com/dms/image/D560BAQHqHHg82hyj1g/company-logo_200_200/0/1717335885474/amberresojet_logo?e=2147483647&v=beta&t=wkjIGQ9_sXHB711V06dN47piuX1UIqOU7g_yKCBIML4
+Australia,https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg,Oceania,ASIA S,,Amica,Amica,https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Amica_Wronki_%28Unternehmen%29_logo.svg/2560px-Amica_Wronki_%28Unternehmen%29_logo.svg.png
+Austria,https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg,Europe,EMEA,,CDA,Amica,https://www.pacificagroup.co.uk/wp-content/uploads/2019/07/cda-logo-346x100.jpg
+Azerbaijan,https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg,Asia,EMEA,,Gram,Amica,https://brandslogos.com/wp-content/uploads/images/gram-logo-vector.svg
+Bahamas,https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg,Americas,LAR N,,Hansa,Amica,https://logos-world.net/wp-content/uploads/2023/01/Hansa-Appliances-Logo-1997.png
+Bahrain,https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg,Asia,EMEA,,Antique,Antique,#N/A
+Bangladesh,https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg,Asia,ASIA S,,Apple,Apple,https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Apple_logo_grey.svg/505px-Apple_logo_grey.svg.png?20220821122206
+Barbados,https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg,Americas,LAR N,,Arcelik,Arcelik,https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ar%C3%A7elik_logo.svg/1280px-Ar%C3%A7elik_logo.svg.png
+Belarus,https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Belarus.svg,Europe,EMEA,,Arctic,Arcelik,https://upload.wikimedia.org/wikipedia/commons/b/b5/ARCTIC_logo_white.png
+Belgium,https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Belgium_%28civil%29.svg,Europe,EMEA,,beko,Arcelik,https://logos-world.net/wp-content/uploads/2020/11/Beko-Logo-700x394.png
+Belize,https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg,Americas,LAR N,,Blomberg,Arcelik,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSuu9IKvYnlGumC-M-Snb2DnYoA9CtvYat9g&s
+Benin,https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg,Africa,EMEA,,Dawlance,Arcelik,https://s3-us-west-2.amazonaws.com/cbi-image-service-prd/modified/0ee2b67f-65b5-47f6-b0f3-c9f2cee1f2ff.png
+Bermuda,https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bermuda.svg,Americas,LAR N,,Defy,Arcelik,https://cdn.cookielaw.org/logos/1ee6a6ce-9b09-49bd-b9e4-a3544706c63e/9d95b085-41d8-4f5b-9952-d7c828dd9ccb/9d100092-875f-4874-a07c-f4cb5a099ef6/Capture.PNG
+Bhutan,https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg,Asia,ASIA S,,Elektrabregenz,Arcelik,https://logowik.com/content/uploads/images/elektra-bregenz1245.logowik.com.webp
+Bolivia,https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg,Americas,LAR S,,Flavel,Arcelik,https://cdn.cookielaw.org/logos/1ee6a6ce-9b09-49bd-b9e4-a3544706c63e/843bd673-cb14-4524-87dd-329f8e4b95ce/b127a17e-6d7b-4815-981e-e755927da33c/logo-flavel.png
+Bosnia and Herzegovina,https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg,Europe,EMEA,,Grundig,Arcelik,https://logos-world.net/wp-content/uploads/2023/01/Grundig-Logo.jpg
+Botswana,https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg,Africa,EMEA,,Hitachi Home Appliances,Arcelik,https://1000logos.net/wp-content/uploads/2017/12/Hitachi-Logo.png
+Brazil,https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg,Americas,LAR S,,Indesit,Arcelik,https://1000logos.net/wp-content/uploads/2021/05/Indesit-logo.png
+Brunei,https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg,Asia,EMEA,,Leisure,Arcelik,https://appliancentre.com/media/amasty/webp/amasty/shopby/option_images/leisure_logo_1_png.webp
+Bulgaria,https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg,Europe,EMEA,,Scholtès,Arcelik,https://www.scholtes.com/wp-content/uploads/2020/12/scholtes-share-1200x600-1.jpg
+Burkina Faso,https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg,Africa,EMEA,,Arisit,Arisit,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUbo-21oUAApBE5UNySfgspYZ7QMDBUR0udQ&s
+Burundi,https://upload.wikimedia.org/wikipedia/commons/5/50/Flag_of_Burundi.svg,Africa,EMEA,,Faber Appliances,Artemis Group,https://www.faberhoods.co.uk/wp-content/uploads/2023/12/logo_FABER_DarkForest-e1701773162648.jpg
+Cambodia,https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg,Asia,ASIA S,,Franke,Artemis Group,https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Franke_logo.svg/2560px-Franke_logo.svg.png
+Cameroon,https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg,Africa,EMEA,,Coldex,Asia Climate Partners.,https://seeklogo.com/images/C/coldex-logo-EE77C007EE-seeklogo.com.png
+Canada,https://upload.wikimedia.org/wikipedia/en/c/cf/Flag_of_Canada.svg,Americas,NAR,,Atlas,Atlas,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg_bWibVldhTdP8ooAuaiq8MFlzdstwt2VMA&s
+Cape Verde,https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Cape_Verde.svg,Africa,EMEA,,Zelmer,B&B Trends,https://logos-world.net/wp-content/uploads/2023/01/Zelmer-Logo.png
+Cayman Islands,https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_the_Cayman_Islands.svg,Americas,LAR N,,Homark,Bernstein Group,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuKzK1xVoJ78bpP3zeNzKnEBcgxds5kXm9wg&s
+Chad,https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_of_Chad.svg,Africa,EMEA,,Bertazzoni,Bertazzoni,https://upload.wikimedia.org/wikipedia/en/1/1b/Bertazzoni_logo.png
+Chile,https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg,Americas,LAR S,,Five Star,Best Buys,https://fivestarrange.com/wp-content/uploads/2021/04/cropped-Fivestar_Badge_12X.png
+China,https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg,Asia,ASIA N,,Insignia,Best Buys,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkF_VHprXWi_qD3RveK9p6GjrmC3FPDvrww&s
+Colombia,https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg,Americas,LAR N,,BlueStar,Blue Star,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAXBvoQpotkje7WA4lNKwnOSAlEHASnJMAWg&s
+Comoros,https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg,Africa,EMEA,,Bob,Bob,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1834-Eb3Jp7h9vxPlGnssLxWUZCdsb35FA&s
+Costa Rica,https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Costa_Rica.svg,Americas,LAR N,,The Bob,Bob's Appliances,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1834-Eb3Jp7h9vxPlGnssLxWUZCdsb35FA&s
+Croatia,https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg,Europe,EMEA,,Brightwell,Brightwell,https://media.licdn.com/dms/image/D4E0BAQFWl0vPbjjnuQ/company-logo_200_200/0/1695639482966/brightwell_usa_logo?e=2147483647&v=beta&t=ezGFzQlqWDlZkTMaD2iU2KmBDW3YkSZ-Hdyq4s738iU
+Cuba,https://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg,Americas,LAR N,,Britania,Britania,https://cdn.worldvectorlogo.com/logos/britania.svg
+Cyprus,https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg,Asia,EMEA,,Westinghouse,Brookfield Corporation,https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Westinghouse_logo_and_wordmark.svg/1280px-Westinghouse_logo_and_wordmark.svg.png
+Czech Republic,https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg,Europe,EMEA,,Brown,Brown,https://www.rbdist.com/uploads/1/0/6/4/10649255/published/brown_1.jpg?1541638818
+Democratic Republic of Congo,https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg,Africa,EMEA,,Balay,BSH,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYudI9jqoOX4O7jhBk3ed7ePhmke1D8cN3zw&s
+Denmark,https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg,Europe,EMEA,,Bosch,BSH,https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/BSH_Bosch_und_Siemens_Hausger%C3%A4te_logo.svg/1280px-BSH_Bosch_und_Siemens_Hausger%C3%A4te_logo.svg.png
+Djibouti,https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg,Africa,EMEA,,BSH,BSH,https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/BSH_Bosch_und_Siemens_Hausger%C3%A4te_logo.svg/1280px-BSH_Bosch_und_Siemens_Hausger%C3%A4te_logo.svg.png
+Dominica,https://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_of_Dominica.svg,Americas,LAR N,,Constructa,BSH,https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Constructa_logo.svg/330px-Constructa_logo.svg.png
+Dominican Republic,https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_the_Dominican_Republic.svg,Americas,LAR N,,Gaggenau,BSH,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTA8eYhr31-cw6NmJNT5zBPhsgFqzVh_uoRQ&s
+East Timor,https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_East_Timor.svg,Asia,ASIA N,,Junker,BSH,https://www.junker-home.com/store/medias/sys_master/root/h8a/h5b/10283391778846/Junker-Logo-Claim-neu.png
+Ecuador,https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg,Americas,LAR S,,Neff,BSH,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Neff_%28Unternehmen%29_logo.svg/1280px-Neff_%28Unternehmen%29_logo.svg.png
+Egypt,https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg,Africa,EMEA,,Profilo,BSH,https://e7.pngegg.com/pngimages/890/799/png-clipart-logo-brand-profilo-graphics-home-appliance-mitsubishi-electric-logo-blue-emblem.png
+El Salvador,https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_El_Salvador.svg,Americas,LAR N,,Thermador,BSH,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8KQf_9gMdB5252QltbwneftnnstvvI3K3YQ&s
+Equatorial Guinea,https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Equatorial_Guinea.svg,Africa,EMEA,,Ufesa,BSH,https://033d704ef8.clvaw-cdnwnd.com/dbb133cf3cb90cf70d95bcdda23c0b91/200000791-23d7c23d7f/ufesa.JPG?ph=033d704ef8
+Eritrea,https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Eritrea.svg,Africa,EMEA,,Viva,BSH,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5bJYaGeH1AO5V5x6-PlG6IrsjXHX85tY4Zg&s
+Ukraine,https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg,Europe,EMEA,,Siemens,BSH,https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Siemens_AG_logo.svg/220px-Siemens_AG_logo.svg.png
+Ethiopia,https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg,Africa,EMEA,,Gree,China,https://e7.pngegg.com/pngimages/427/33/png-clipart-logo-product-design-brand-trademark-gree-electric-design-blue-text.png
+Europe,https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg,Europe,EMEA,,MagicChef,CNA International Inc.,https://cdn.freebiesupply.com/logos/large/2x/magic-chef-1-logo-png-transparent.png
+Federated States of Micronesia,https://upload.wikimedia.org/wikipedia/commons/e/e4/Flag_of_the_Federated_States_of_Micronesia.svg,Oceania,ASIA S,,Cuisinart,Conair Corporation.,https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Cuisinart_logo.svg/768px-Cuisinart_logo.svg.png?20180630005810
+Fiji,https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Fiji.svg,Oceania,ASIA S,,Matter,Connectivity Standards Alliance,https://www.matter.inc/img/logo.svg
+Finland,https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg,Europe,EMEA,,Cosmo Kitchen Products,Cosmo Kitchen Products,https://media.licdn.com/dms/image/C560BAQHVCgLtKjDXWQ/company-logo_200_200/0/1643263976952/cosmo_kitchen_products_logo?e=2147483647&v=beta&t=Lk28wVK1WWUgllbxqRCrtY7VcP3CCQmHI2-GcGytXeU
+France,https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg,Europe,EMEA,,Daan Tech,Daan Tech,https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_Daan_Tech_2022.png
+French Guiana,https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg,Americas,LAR S,,Danby,Danby,https://cdnweb.danby.com/wp-content/uploads/2023/02/07164231/WebsiteLogo.png
+Gambia,https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_The_Gambia.svg,Africa,EMEA,,NXR,Duro Corporation ,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ72MBmj7LlDzadJp3RvrRisJTI-OOYQ4JWgA&s
+Georgia,https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg,Asia,EMEA,,Easy,Easy,https://i0.wp.com/easyappliances.in/wp-content/uploads/2023/07/cropped-cropped-Easy-Logo-Website.png?w=500&ssl=1
+Germany,https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg,Europe,EMEA,,AEG,Electrolux,https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/AEG-Power-Solutions-Logo.svg/510px-AEG-Power-Solutions-Logo.svg.png?20121229182228
+Ghana,https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg,Africa,EMEA,,Electrolux,Electrolux,https://www.electroluxgroup.com/en/wp-content/uploads/sites/2/2018/12/electrolux-logo-og-2.jpg
+Global,https://upload.wikimedia.org/wikipedia/commons/c/cb/The_Blue_Marble_%28remastered%29.jpg,Global,Global,,Frigidaire,Electrolux,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdkPAieg5vHt7czASx0S2G-eP4xItylWfHpQ&s
+Greece,https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg,Europe,EMEA,,Kelvinator,Electrolux,https://1000logos.net/wp-content/uploads/2021/05/Kelvinator-logo.png
+Grenada,https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Grenada.svg,Americas,LAR N,,King,Electrolux,#N/A
+Guatemala,https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Guatemala.svg,Americas,LAR N,,Molteni,Electrolux,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQY6rquFRn3fYaBAU-3ohpsmW5P66aYp8wYg&s
+Guinea,https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg,Africa,EMEA,,Philco,Electrolux,https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Philco_logo.svg/2560px-Philco_logo.svg.png
+Guinea-Bissau,https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Guinea-Bissau.svg,Africa,EMEA,,Tappan,Electrolux,https://cdn.shopify.com/s/files/1/0257/1288/5844/files/Untitled_design_59.jpg?height=628&pad_color=fff&v=1644346559&width=1200
+Guyana,https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg,Americas,LAR S,,Zanussi,Electrolux,https://appliancentre.com/media/amasty/webp/amasty/shopby/option_images/zanussi_logo_1_png.webp
+Haiti,https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Haiti.svg,Americas,LAR N,,EuroMonitor,EuroMonitor,https://www.euromonitor.com/globalassets/header/main-logo/euromonitor-logo-original-2.png
+Honduras,https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Honduras.svg,Americas,LAR N,,Rorgue,ExclusiveRanges,#N/A
+Hong Kong,https://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Hong_Kong.svg,Asia,ASIA N,,Elica,Fan S.A,https://www.elica.com/assets/elica/images/elica-big.svg
+Hungary,https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg,Europe,EMEA,,Feesiluu,Feesiluu,https://m.media-amazon.com/images/I/61MW-Y5Vn9L.jpg
+Iceland,https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg,Europe,EMEA,,Summit,Felix Storch,https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/012014/summit-appliance_logo.png?itok=ZAKSPJL9
+India,https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg,Asia,ASIA S,,Fotile,Fotile,https://mir-s3-cdn-cf.behance.net/projects/404/56636396759297.Y3JvcCwxMTY5LDkxNCwxMTUsMjQz.jpg
+Indonesia,https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg,Asia,ASIA S,,Sharp,Foxconn,https://1000logos.net/wp-content/uploads/2021/05/Sharp-logo.png
+Iran,https://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Iran.svg,Asia,EMEA,,Fulgor,Fulgor,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_xQVmvzCuL0gYZzWytU9zIP4KoVKjU75ddQ&s
+Iraq,https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg,Asia,EMEA,,Koryo,Future Group,https://mir-s3-cdn-cf.behance.net/projects/404/dd8486134755959.Y3JvcCwxMzc5LDEwNzksMjkwLDA.png
+Ireland,https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg,Europe,EMEA,,Elco,G. Salkind,https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/082010/ELCO.jpg?itok=ay6t5K2W
+Israel,https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg,Asia,EMEA,,Galanz,Galanz,https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Galanz_LOGO_%28Red%29_PNG.png/1200px-Galanz_LOGO_%28Red%29_PNG.png
+Italy,https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg,Europe,EMEA,,GiantexUK,Giantex,"https://m.media-amazon.com/images/I/61v4n1mQJ1L._AC_UF894,1000_QL80_.jpg"
+Ivory Coast,https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg,Europe,EMEA,,Glem,Glem Gas,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmxsAM4onXYoDVgVLJIEShWw47uI4ViyIvDg&s
+Jamaica,https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg,Americas,LAR N,,Glem Black,Glem Gas,#N/A
+Japan,https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg,Asia,ASIA N,,Belling,Glen Dimplex Home Appliances,https://www.registermyappliance.org.uk/wp-content/uploads/2014/04/Belling-Logo-300x113.png
+Jordan,https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg,Asia,EMEA,,Britannia,Glen Dimplex Home Appliances,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg0ipB0zcerpkBEqrwLmQvV_1HwOMuSCscCw&s
+Kenya,https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg,Africa,EMEA,,LEC,Glen Dimplex Home Appliances,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSneQ3bZbW0eBr5dOSYJGFBCMBeLTOkce7Mog&s
+Kosovo,https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_Kosovo.svg,Europe,EMEA,,New World,Glen Dimplex Home Appliances,https://appliancentre.com/media/amasty/webp/amasty/shopby/option_images/new-world_logo_1_png.webp
+Kuwait,https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg,Asia,EMEA,,Stoves,Glen Dimplex Home Appliances,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1wlk_6D27MOqv-7S0_kOR6-U9oyxxjfzOEg&s
+Laos,https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Laos.svg,Asia,ASIA S,,Godrej,Godrej,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIqiPTq6T2r0K3N7X_NbJQzJMHuK65paRHAA&s
+Latvia,https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Latvia.svg,Europe,EMEA,,Google,Google,https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png
+Lebanon,https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg,Asia,EMEA,,CHARVET,Groupe SEB,https://www.lamarmite.pro/WEFiles/Image/WEImage/Logo_Charvet2-WEde6bf9af2b.png
+Liberia,https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Liberia.svg,Africa,EMEA,,LACANCHE,Groupe SEB,https://www.lacanche.com/Resources/Lacanche-logo1.png
+Libya,https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Libya.svg,Africa,EMEA,,Jeenow,"Guangdong Jienuo Electric Appliances Co., Ltd",https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDBbWSL08zaLWAzF5bC8vj7ilwBug83lOtg&s
+Liechtenstein,https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Liechtenstein.svg,Europe,EMEA,,Häfele,Häfele,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0zam6cwztXm6687mt4h-qNi2tD8aprP-9og&s
+Angola,https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg,Africa,EMEA,,Artistry,Haier,https://s3.amazonaws.com/cms.ipressroom.com/112/files/20135/51c8f240fc96aa6e2a0040ce_13_artistry_logo_3d_wht/13_artistry_logo_3d_wht_b3c56106-5dba-466a-93d1-ced4a8a00544-prv.jpg
+Gabon,https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_of_Gabon.svg,Africa,EMEA,,DCS,Haier,https://i0.wp.com/outdoorelegance.com/wp-content/uploads/2018/11/unnamed.jpg?fit=900%2C900&ssl=1
+Lithuania,https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Lithuania.svg,Europe,EMEA,,Cafe by GE,Haier,https://cdn.cookielaw.org/logos/fe71a982-e17b-4683-a662-8d58d1aa889c/fb7ddb99-8890-4304-b2aa-010459a92216/Caf%C3%A9_Logo_bigger.jpg
+Luxembourg,https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Luxembourg.svg,Europe,EMEA,,Candy,Haier,https://www.agoraplus.com/wp-content/uploads/2018/12/Logo-CANDY-Simple-2.png
+Macedonia,https://upload.wikimedia.org/wikipedia/commons/f/f8/Flag_of_Macedonia.svg,Europe,EMEA,,Casarte,Haier,https://image.haier.com/publichw/icon-font/material/haiergroup/hw2019_aboutHaierCompany_img8.jpg
+Madagascar,https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Madagascar.svg,Africa,EMEA,,Fisher & Paykel,Haier,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkPs0ubUCdkBYhp2oclOObB2kjEFFraSPQOA&s
+Malawi,https://upload.wikimedia.org/wikipedia/commons/d/d1/Flag_of_Malawi.svg,Africa,EMEA,,GE,Haier,https://pbs.twimg.com/profile_images/1182680004120834048/Rj7iKklK_400x400.jpg
+Malaysia,https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg,Asia,EMEA,,Haier,Haier,https://1000logos.net/wp-content/uploads/2017/12/Haier-Logo.png
+Maldives,https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Maldives.svg,Asia,EMEA,,Hoover Europe,Haier,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaA00CO34gU8SOtrr8mXy1C7sZ2fQaBOKEGA&s
+Mali,https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Mali.svg,Africa,EMEA,,Hotpoint NAR,Haier,https://logos-world.net/wp-content/uploads/2023/01/Hotpoint-Ariston-Logo.png
+Malta,https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Malta.svg,Europe,EMEA,,Jinling,Haier,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdSlRkF-41CWV58w7-gnnMP2ukSkbpUcbFSg&s
+Marshall Islands,https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_the_Marshall_Islands.svg,Oceania,ASIA S,,Leader,Haier,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtg3xTlJEgQ5-GW62V9EorQ_8JjLBku4cipw&s
+Mauritania,https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg,Africa,EMEA,,Mabe,Haier,https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Logotipo_Mabe.svg/10334px-Logotipo_Mabe.svg.png
+Mauritius,https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Mauritius.svg,Africa,EMEA,,Monogram,Haier,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0-C4dj1FqJ-YBWuhRp9xzPAW_-MN7OEphdw&s
+Mexico,https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg,Americas,LAR N,,Profile,Haier,https://zeevector.com/wp-content/uploads/Ge-Profile-Logo-PNG.png
+Moldova,https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Moldova.svg,Europe,EMEA,,Roper,Haier,https://seeklogo.com/images/R/roper-appliances-logo-A91B382D1B-seeklogo.com.png
+New Zealand,https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg,Oceania,ASIA S,,Baumatic,Haier,https://appliancentre.com/media/amasty/shopby/option_images/baumatic_logo_1.png
+Monaco,https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg,Europe,EMEA,,Robam,Hangzhou Robam Appliances,https://www.robam.co.nz/cdn/shop/files/Robam_Logo_1993x.webp?v=1659259164
+Mongolia,https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Mongolia.svg,Asia,ASIA N,Haier,HAVA,HAVA,https://havalab.com/cdn/shop/files/logo_2x_a7ea6ab8-0b45-47f9-860f-03e0dcde9020_196x48.png?v=1663294696
+Montenegro,https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Montenegro.svg,Europe,EMEA,,Nokia,HDM,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8wrM2-YuHU_VCgYOuWmgeS_ncXHN3l4Ad3g&s
+Morocco,https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg,Africa,EMEA,,Heartland,Heartland,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlEjMhOjFDvl57gQfcdhgpxpytNQ2xXsn_uQ&s
+Mozambique,https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Mozambique.svg,Africa,EMEA,,Persil,Henkel,https://1000logos.net/wp-content/uploads/2021/04/Persil-logo.png
+Myanmar,https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg,Asia,ASIA S,,ASKO,Hisense,https://seeklogo.com/images/A/Asko-logo-8D7D50DB74-seeklogo.com.png
+Namibia,https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Namibia.svg,Africa,EMEA,,Gorenje,Hisense,https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Gorenje_Logo.svg/1280px-Gorenje_Logo.svg.png
+Nauru,https://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Nauru.svg,Oceania,ASIA S,,Hisense,Hisense,https://1000logos.net/wp-content/uploads/2018/08/Hisense-Logo.png
+Nepal,https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg,Asia,ASIA S,,ISE,Hisense,https://www.ukwhitegoods.co.uk/images/iseLogo270-200w.gif
+Netherlands,https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg,Europe,EMEA,,Foxconn,Hon Hai Precision Industry Co Ltd,https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Foxconn_logo.svg/1280px-Foxconn_logo.svg.png
+Nicaragua,https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Nicaragua.svg,Americas,LAR N,,Hoshizaki,Hoshizaki,https://www.hoshizakiamerica.com/wp-content/uploads/5Star-Combo-Color-BlkText-Social.jpg
+Niger,https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Niger.svg,Africa,EMEA,,IFB,IFB,https://www.ifbappliances.com/media/logo/stores/1/logo-new.png
+Nigeria,https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg,Africa,EMEA,,IFB Neptune,IFB,https://www.ifbappliances.com/media/logo/stores/1/logo-new.png
+North Korea,https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_North_Korea.svg,Asia,ASIA N,,IKEA,IKEA,https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ikea_logo.svg/1024px-Ikea_logo.svg.png
+Norway,https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg,Europe,EMEA,,ILVE,ILVE,https://www.ilve.com/wp-content/uploads/2020/04/logo-ilve.png
+Oman,https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg,Asia,EMEA,,Toshiba,Japan Industrial Partners,https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Toshiba_logo.svg/2560px-Toshiba_logo.svg.png
+Pakistan,https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg,Asia,ASIA S,,Joyoung,Joyoung,https://seeklogo.com/images/J/joyoung-logo-FADC61A4D8-seeklogo.com.png
+Palau,https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Palau.svg,Oceania,ASIA S,,Kohler,Kohler,"https://kohler.scene7.com/is/image/Kohler/KohlerLogoImage?$CorpSecondary$&crop=110,0,23778,16000&wid=590&hei=397"
+Palestine,https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg,Asia,EMEA,,Kucht,Kucht,https://kbis.com/wp-content/uploads/2023/11/kucht-logo.jpg
+Panama,https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg,Americas,LAR N,,Kucht Professional,Kucht Professional,https://kbis.com/wp-content/uploads/2023/11/kucht-logo.jpg
+Papua New Guinea,https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg,Oceania,ASIA S,,Lancel,Lancel,https://lancel.com/cdn/shop/files/Lancel_Paris_logo-700x200_1.png?v=1646057452
+Paraguay,https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg,Americas,LAR S,,Crossover,Laundrylux ,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXyFA9ZbXIy2HRSEBVTm_vG7VjjMzrkG7w_H02Ky4M2MEJYpg9AQ5uIwxxTd23-_3uqvI&usqp=CAU
+Peru,https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg,Americas,LAR S,,LG,LG,https://1000logos.net/wp-content/uploads/2017/03/LG-Logo.png
+Philippines,https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg,Asia,ASIA S,,Liebherr,Liebherr,https://upload.wikimedia.org/wikipedia/commons/6/66/Liebherr_logo.svg
+Poland,https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg,Europe,EMEA,,American Standard,Lixil,https://1000logos.net/wp-content/uploads/2021/06/American-Standard-Logo.png
+Portugal,https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg,Europe,EMEA,,Marssenger,Marssenger,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBR2KTHeyw_2iSVL7YMiWbtTVCu4JwR2qssg&s
+Qatar,https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg,Asia,EMEA,,Caple,Maurice Lay Distributors,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvqZ1JDYgV2gQrJDQ-gQRtcOrKLiShrH5U1A&s
+Taiwan,https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg,Asia,ASIA S,,Mayerbach,Mayerbach,https://upload.wikimedia.org/wikipedia/commons/f/f6/Mayerbach_Logo.png
+Republic of Congo,https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_the_Republic_of_the_Congo.svg,Africa,EMEA,,Criterion,Menards,https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/The_Criterion_Collection_Logo.svg/2048px-The_Criterion_Collection_Logo.svg.png
+Romania,https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg,Europe,EMEA,,Ariston,Merloni Holding S.P.A.,https://upload.wikimedia.org/wikipedia/commons/8/8e/Ariston_logo.jpg
+Russia,https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg,Europe,EMEA,,Meta,Meta,https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/800px-Meta_Platforms_Inc._logo.svg.png
+Rwanda,https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Rwanda.svg,Africa,EMEA,,Cannon,MGM,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV8VCg7OUsGJKa9f_vaDyeBsQ8WTfuTKKCuQ&s
+San Marino,https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_San_Marino.svg,Europe,EMEA,,Microsoft,Microsoft,https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/512px-Microsoft_logo_%282012%29.svg.png
+Saudi Arabia,https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg,Asia,EMEA,,AGA Ranges,Middleby,https://www.agarangemaster.com/sites/default/files/2023-10/AGA%20700%20x%20610.png
+Senegal,https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg,Africa,EMEA,,Marvel Scientific,Middleby,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5p9Cu26d7jxzd6hH9kQV2i6pJ1tCaIpX8-A&s
+Serbia,https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg,Europe,EMEA,,U-Line,Middleby,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEfhJTB2SHGueJrd54mb6mN1Hp_gQ8tMAaDw&s
+Seychelles,https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Seychelles.svg,Africa,EMEA,,Viking,Middleby,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWTdbckIh2IX5bvK6GTxbQtAEdmXBZIeZ42g&s
+Estonia,https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Estonia.svg,Europe,EMEA,,Bugu,Midea,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh1efnobASa2rwox0hUpOxuqEmoja7Y9QTDQ&s
+Sierra Leone,https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Sierra_Leone.svg,Africa,EMEA,,Midea,Midea,https://1000logos.net/wp-content/uploads/2020/04/Logo-Midea.jpg
+Singapore,https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Singapore.svg,Asia,ASIA S,,Miele,Miele,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Miele_Logo_M_Red_sRGB.svg/2560px-Miele_Logo_M_Red_sRGB.svg.png
+Slovakia,https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg,Europe,EMEA,,Bose,MIT,https://1000logos.net/wp-content/uploads/2021/05/Bose-logo.png
+Slovenia,https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Slovenia.svg,Europe,EMEA,,Moda,Moda,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2gz_lFqJZzls7MLB53TabParL7oCWLB8DrQ&s
+Solomon Islands,https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_Solomon_Islands.svg,Oceania,ASIA S,,Fagor,Mondragon Corporation.,https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/LOGO_FAGOR.jpg/800px-LOGO_FAGOR.jpg
+Somalia,https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Somalia.svg,Africa,EMEA,,multiple,multiple,https://user-images.githubusercontent.com/43790097/54885025-73a46200-4e6f-11e9-94e1-5aa798acd578.png
+South Africa,https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg,Africa,EMEA,,GfK,Nielsen Consumer LLC,https://upload.wikimedia.org/wikipedia/commons/d/da/GfK_%28Unternehmen%29_2019_logo.svg
+South Korea,https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg,Asia,ASIA N,,no specific,no specific,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyB9q1vL_ilFOXLlIIecZMmzIadByL7aT7GsGhDbqNOl4Quhb55CAmKtMIVTZH1tT8ExI&usqp=CAU
+South Sudan,https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_South_Sudan.svg,Africa,EMEA,,Northstar,Northstar,https://upload.wikimedia.org/wikipedia/commons/d/dc/NorthStar_logo.svg
+Spain,https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg,Europe,EMEA,,Big Chill,Orion Creamer,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCA-GjbEnE3XPSUR14VRtdO6orGGLwc_73kA&s
+Sri Lanka,https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg,Asia,ASIA S,,other,other,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN1mjy0_2kpANaVek6OqUczDQoZOGuSESBPokAQpNzU7ZmpPLVLYM8vTg2te0tdpi7pA&usqp=CAU
+Sudan,https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sudan.svg,Africa,EMEA,,P&G,P&G,https://upload.wikimedia.org/wikipedia/commons/f/f9/P%26G_logo.png
+Suriname,https://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Suriname.svg,Americas,LAR S,,Highland Superstores,Pacifica Appliance Services,https://upload.wikimedia.org/wikipedia/en/d/d5/Highland_Superstores_Logo.webp
+Swaziland,https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_Swaziland.svg,Africa,EMEA,,National,Panasonic,https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/National_logo.svg/1024px-National_logo.svg.png
+Sweden,https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg,Europe,EMEA,,Panasonic,Panasonic,https://www.homeappliancesworld.com/files/2015/02/panasonic-logo-582481.jpg
+Switzerland,https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Switzerland_%28Pantone%29.svg,Europe,EMEA,,Premier,Peerless-Premier,https://upload.wikimedia.org/wikipedia/commons/1/14/SS_Premier_Logo.png
+Syria,https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Syria.svg,Asia,EMEA,,Qudos,Percy Doughty,https://www.qudoscollection.co.uk/wp-content/uploads/2023/10/Qudos-FINAL-LOGO-in-white.-png-03.png
+Taiwan,https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg,Asia,ASIA N,,Perlick,Perlick,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw6r0tMlf88H6GMbFPap6TtyhoVyZmAyR2wg&s
+Tajikistan,https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Tajikistan.svg,Asia,EMEA,,Philco NAR,Philips,https://download.logo.wine/logo/Philco/Philco-Logo.wine.png
+Tanzania,https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Tanzania.svg,Africa,EMEA,,Philips,Philips,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSVqpFAeO7OaPcjqFgYXN6jWjGn02HKuQbVg&s
+Thailand,https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg,Asia,ASIA S,,PlanetCare,PlanetCare,https://service.planetcare.org/wp-content/uploads/2021/03/planetcare-logo.svg
+The Gambia,https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_The_Gambia.svg,Africa,EMEA,,Eurolec,Premium Appliance Brands Limited,https://www.registermyappliance.org.uk/wp-content/uploads/2014/11/Eurolec-logo-1.jpg
+Togo,https://upload.wikimedia.org/wikipedia/commons/6/68/Flag_of_Togo.svg,Africa,EMEA,,Tide,Procter & Gamble,https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Tide_logo.svg/2048px-Tide_logo.svg.png
+Tonga,https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Tonga.svg,Oceania,ASIA S,,Wyzr,Reliance Industries Ltd,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKrUs-QlXlAhci6YLzS-SFHV8jFb2aac-kHg&s
+Trinidad and Tobago,https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Trinidad_and_Tobago.svg,Americas,LAR N,,Richmond,Richmond,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRefkpIjoH7oX8MY5PPBcy7SZIMq34sjnoWlg&s
+Tunisia,https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg,Africa,EMEA,,Roborock,Roborock,https://cdn.shopify.com/s/files/1/0082/3666/2902/files/066316c5-be40-4ae9-80d3-a035d914debd.jpg?height=628&pad_color=ffffff&v=1656659226&width=1200
+Turkey,https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg,Asia,EMEA,,Bespoke,Samsung,https://static.wikia.nocookie.net/logopedia/images/7/75/BESPOKE.png/revision/latest?cb=20220818194817
+Turkmenistan,https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Turkmenistan.svg,Asia,EMEA,,Dacor,Samsung,https://mms.businesswire.com/media/20170315006216/en/575667/5/DacorLogo_Black.jpg
+Tuvalu,https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Tuvalu.svg,Oceania,ASIA S,,Samsung,Samsung,https://upload.wikimedia.org/wikipedia/commons/f/f1/Samsung_logo_blue.png
+UAE,https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg,Asia,EMEA,,Heatworks,Sdiptech AB,https://heatwork.com/wp-content/uploads/2013/06/HeatWork_medvignett_pms.jpg
+Uganda,https://upload.wikimedia.org/wikipedia/commons/4/4e/Flag_of_Uganda.svg,Africa,EMEA,,SEB,SEB,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvfhDwZQbMQzwJ03LRudOsZW0bFaiuv3htYA&s
+UK,https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg,Europe,EMEA,,Shriro,Shriro,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbK_lH6439LHCWCiaYqNU2JhcQkqBbp6j3WQ&s
+Uruguay,https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Uruguay.svg,Americas,LAR S,,SK Magic,SK Group,https://i.namu.wiki/i/7r_qhSUYAmW2tQSH8S1qpWlOrD-CmtH_DGQKveLnTXek-N7oBy6L5qCqGRO9ADRONApGSpF2SvSm4Vxg2UIiXA.svg
+USA,https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg,Americas,NAR,,SMEG,SMEG,https://1000logos.net/wp-content/uploads/2020/10/Smeg-Logo.png
+Uzbekistan,https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg,Asia,EMEA,,Tetra,Spectrum,https://mma.prnewswire.com/media/74906/tetra_technologies_logo.jpg
+Vanuatu,https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Vanuatu.svg,Oceania,ASIA S,,Super Plastronics Pvt Ltd ,SPPL,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU-DDWtLvH8FoT2PWNsPcKZHslF6G0XCiYQw&s
+Vatican City,https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_the_Vatican_City.svg,Europe,EMEA,,Staber,Staber,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlxorJ-tS28D_gFaey-0Su3HKbxtyBDKr9ag&s
+Venezuela,https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Venezuela.svg,Americas,LAR S,,Black&Decker,Stanley Black & Decker.,https://www.mtbs3d.com/wp-content/uploads/2013/01/Black_Decker_LogoColor.jpg
+Vietnam,https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg,Asia,ASIA S,,Sterling,Sterling,https://stirlingappliances.com.au/wp-content/uploads/2022/02/home-logo.png
+Yemen,https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg,Asia,EMEA,,Cove,Sub-Zero,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThsF3OT84BXv1890YqeeK6ICENjU2pb2yCYQ&s
+Zambia,https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Zambia.svg,Africa,EMEA,,Sub-Zero,Sub-Zero,https://cdnassets.hw.net/87/72/9bd15b0546b5ab40ca660afc373c/sub-zero-logo.png
+Zimbabwe,https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Zimbabwe.svg,Africa,EMEA,,Wolf,Sub-Zero,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpTNykyIC3lS-VPuwlXXzH63S0CLWus9go5Q&s
+,,,,,Swan,Sutton Venture Group,https://cdn.shopify.com/s/files/1/1123/5134/files/swanlogo_1.webp?height=628&pad_color=ffffff&v=1659707878&width=1200
+,,,,,Voltas,Tata Trusts,https://upload.wikimedia.org/wikipedia/commons/2/2d/Voltas-Logo-PNG.png
+,,,,,TCL,TCL,https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Logo_of_the_TCL_Corporation.svg/1200px-Logo_of_the_TCL_Corporation.svg.png
+,,,,,Hoover NAR,Techtronic Industries,https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Hoover_Logo.svg/800px-Hoover_Logo.svg.png
+,,,,,Teka,Teka,https://1000logos.net/wp-content/uploads/2020/04/Teka-Logo-1988.jpg
+,,,,,Avanti,The Legacy Companies,https://upload.wikimedia.org/wikipedia/commons/2/26/Avanti_logo.gif?20140807185200
+,,,,,Thor Kitchen,Thor Kitchen,https://logovectordl.com/wp-content/uploads/2021/01/thor-kitchen-logo-vector.png
+,,,,,Tonello,Tonello,https://wordpress.textileworld.com/wp-content/uploads/2024/04/Tonello-Logo.png
+,,,,,Tramontina,Tramontina,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Tramontina-Logo.svg/2560px-Tramontina-Logo.svg.png
+,,,,,Trane,Trane,https://brandslogos.com/wp-content/uploads/thumbs/trane-logo-vector.svg
+,,,,,Kenmore,Transform ,https://cdn.worldvectorlogo.com/logos/kenmore.svg
+,,,,,Sears,Transform ,https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Sears_Logo.svg/1280px-Sears_Logo.svg.png
+,,,,,KMART,Transformco ,https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Kmart_logo.svg/768px-Kmart_logo.svg.png
+,,,,,TTK Prestige,TTK Group,https://media.licdn.com/dms/image/D5605AQHqlu0TtYekHA/videocover-low/0/1718347207057?e=2147483647&v=beta&t=2XS04tnHxAZXUOca6kNglxZJirbgLS868XBaSvb40do
+,,,,,Macom,Tyco Electronics,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaPTzdCbqayrabi63sMqT8F35LScze61vPSg&s
+,,,,,Beldray,Ultimate Products,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMskOuuprTJmABJsDbF_ypPDRKSqoUlrMm7Q&s
+,,,,,Carrier,United Technologies Corporation,https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Logo_of_the_Carrier_Corporation.svg/300px-Logo_of_the_Carrier_Corporation.svg.png
+,,,,,V-Zug,V-Zug,https://upload.wikimedia.org/wikipedia/commons/3/32/V-ZUG_Logo_blue_2021.svg
+,,,,,Vatti,Vatti,https://upload.wikimedia.org/wikipedia/en/6/64/Vatti_logo.png
+,,,,,Verona,Verona,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0wfCuUdlOA-KMVxCElU4NspZn3blOuC-0Vg&s
+,,,,,Victoria Plum,Victorian Plumbing,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEzHSvpSGpMuWP5bal8dILCbf_53AklQUXMA&s
+,,,,,Walton,Walton,https://en.wikipedia.org/wiki/Walton_Group#/media/File:Walton_Group.svg
+,,,,,Wash Cycle Laundry,Wash Cycle Laundry,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCJWsASFr__m9d5mraElyyx9x8-FSpIswBEQ&s
+,,,,,Amana,Whirlpool,https://cdn.cookielaw.org/logos/27a5367b-1368-47a0-a893-b944fb7aeb6d/c21b0256-7492-4546-8a83-4a3e4c456bac/Amana-logo.png
+,,,,,Bauknecht,Whirlpool,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRX_EK32ggF0lnYec9WRXtb7iN08EFiJFQJA&s
+,,,,,Brastemp,Whirlpool,https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Brastemp.svg/2560px-Brastemp.svg.png
+,,,,,Hotpoint,Whirlpool,https://findvectorlogo.com/wp-content/uploads/2020/04/hotpoint-a-brand-of-whirlpool-corporation-vector-logo.png
+,,,,,Ignis,Whirlpool,https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0013/2086/brand.gif?itok=dPJlPTjB
+,,,,,Inglis,Whirlpool,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRm7Z5q1dpEmQXwSp6AOhm9u7V_-qkYCqyGA&s
+,,,,,InSinkerator,Whirlpool,https://insinkerator.emerson.com/resource/blob/insinkerator-data-4849426.png
+,,,,,Jenn-Air,Whirlpool,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkF8VEdBesmEtDm0AkMXyhRXmR9uhoZNPm9w&s
+,,,,,KitchenAid,Whirlpool,https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Kitchenaid_logo.svg/2560px-Kitchenaid_logo.svg.png
+,,,,,Maytag,Whirlpool,https://1000logos.net/wp-content/uploads/2017/12/Maytag-logo.jpg
+,,,,,Whirlpool,Whirlpool,https://1000logos.net/wp-content/uploads/2017/12/whirlpool-symbol.jpg
+,,,,,Whitehouse,Whitehouse,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn7LVwSRQovyCOve7T5UDFguLk2kmrtRXaDM0wt9GEgPBjPVYVLYWLP1XUygzdubY8bg&usqp=CAU
+,,,,,Daewoo,Winia,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOqFw7nNbYm2fBWsYp_m-2DoNQNQ1LKk1voQ&s
+,,,,,Dayoo,Xiaomi,https://media.licdn.com/dms/image/D560BAQFVi1LbW_Xh3w/company-logo_400_400/0/1691381816084/youmi_co_ltd_logo?e=2147483647&v=beta&t=ybcrOMwEh-XNfHOD9l4MKOa12SmQ8G5Yx6knNx-B4r0
+,,,,,Xiaomi,Xiaomi,https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiaomi_logo_%282021-%29.svg/2048px-Xiaomi_logo_%282021-%29.svg.png
+,,,,,Yale,Yale,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv-NTuN9BrzJmMdED9LJIrO3o5Si9FLdnI0g&s
+,,,,,ZLine,ZLine,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwjc-T5iIZySZ3tZEpnxAtu-rtkwI0TuuMzg&s
+,,,,,Servis,Zorlu,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKBr_kFeaDodshIBHwmmE2dbXf1xGdenfrNg&s
+,,,,,Vestel,Zorlu,https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Vestel_logo.svg/2560px-Vestel_logo.svg.png
+,,,,,White Knight,Zorlu,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCMz6PR_gpPBEIT3UCOm3Afddvd2BEH5Airg&s
+,,,,,Acme,Acme,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7C1Tvo3B0RQWlrCDfjcdD2hOJie3Jh_W8wQ&s
+,,,,,Bear Electric Appliance Co Ltd,Bear Electric Appliance Co Ltd,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiepCSAi8ejvRGNcETgnw_JTWRFqpEH_M-eQ&s
+,,,,,Dash Square,Dash Square,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKy_WF7xkIViizTYmUhNzEaPhjoDkGIJ8IfQ&s
+,,,,,Ecolab,Ecolab,https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Ecolab.svg/1280px-Ecolab.svg.png
+,,,,,Häfele ,Häfele ,https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Haefele_Logo.png/330px-Haefele_Logo.png
+,,,,,Orbysun,Maikology ,https://static1.squarespace.com/static/59a600ffd55b419bd78cabd1/t/6540f320a9b72003914ad144/1698755360956/MAIKOLOGY+LOGO+black.png?format=1500w
+,,,,,surfing,,#N/A
+,,,,,University Bonn,University Bonn,https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Universit%C3%A4t_Bonn.svg/2560px-Universit%C3%A4t_Bonn.svg.png
+,,,,,Xinbao,Guangdong Xinbao Electrical Appliances,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNKHpuxsyyOgFtuvtgR24BVztpLLYbzSpQHA&s
+,,,,,Hafele,Hafele,https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/H%C3%A4fele_GmbH_%26_Co_KG_Logo.svg/800px-H%C3%A4fele_GmbH_%26_Co_KG_Logo.svg.png?20110508154817
+,,,,,Dash Square,Dash Square,https://www.dashsquare.com/wp-content/themes/dashsquare/images/Dash-Square-Logo-2.png
